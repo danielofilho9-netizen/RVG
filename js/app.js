@@ -12,24 +12,38 @@ document.addEventListener('DOMContentLoaded', () => {
     const navMenu = document.getElementById('nav-menu');
 
     if (mobileToggle && navMenu) {
-        mobileToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            const icon = mobileToggle.querySelector('i');
-            if (navMenu.classList.contains('active')) {
-                icon.className = 'fa-solid fa-xmark';
+        const toggleMenu = (open) => {
+            const shouldOpen = open !== undefined ? open : !navMenu.classList.contains('active');
+            if (shouldOpen) {
+                navMenu.classList.add('active');
+                document.body.classList.add('menu-open');
+                const icon = mobileToggle.querySelector('i');
+                if (icon) icon.className = 'fa-solid fa-xmark';
             } else {
-                icon.className = 'fa-solid fa-bars';
+                navMenu.classList.remove('active');
+                document.body.classList.remove('menu-open');
+                const icon = mobileToggle.querySelector('i');
+                if (icon) icon.className = 'fa-solid fa-bars';
             }
+        };
+
+        mobileToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleMenu();
         });
 
-        // Close menu on link click
+        // Close menu on link or action click
         navMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                if (mobileToggle.querySelector('i')) {
-                    mobileToggle.querySelector('i').className = 'fa-solid fa-bars';
-                }
+                toggleMenu(false);
             });
+        });
+
+        // Close when clicking outside
+        document.addEventListener('click', (e) => {
+            if (navMenu.classList.contains('active') && !navMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
+                toggleMenu(false);
+            }
         });
     }
 
