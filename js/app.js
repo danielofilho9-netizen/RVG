@@ -7,6 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 1. CANVAS GOLD PARTICLE BACKGROUND ---
     initParticleCanvas();
 
+    // --- 1.1 INTERACTIVE & AUTOMATIC SERVICE CAROUSELS ---
+    initCarousels();
+
     // --- 2. MOBILE MENU TOGGLE ---
     const mobileToggle = document.getElementById('mobile-toggle');
     const navMenu = document.getElementById('nav-menu');
@@ -287,4 +290,205 @@ function initParticleCanvas() {
     }
 
     animate();
+}
+
+/* ==========================================================================
+   CARROSSEL / SLIDER COMPONENT LOGIC (INTERATIVO & AUTOMÁTICO)
+   ========================================================================== */
+function initCarousels() {
+    const carousels = document.querySelectorAll('.service-carousel');
+
+    carousels.forEach(carousel => {
+        const track = carousel.querySelector('.carousel-track');
+        const slides = carousel.querySelectorAll('.carousel-slide');
+        const prevBtn = carousel.querySelector('.carousel-prev');
+        const nextBtn = carousel.querySelector('.carousel-next');
+        const playBtn = carousel.querySelector('.carousel-play-toggle');
+        const counter = carousel.querySelector('.carousel-counter');
+        const dotsContainer = carousel.querySelector('.carousel-dots-container');
+
+        if (!track || slides.length === 0) return;
+
+        let currentIndex = 0;
+        const totalSlides = slides.length;
+        const intervalTime = parseInt(carousel.dataset.interval, 10) || 4000;
+        let timer = null;
+        let isPlaying = carousel.dataset.autoplay !== 'false';
+        let isHovered = false;
+
+        // Se houver apenas 1 slide, oculta os controles de navegação
+        if (totalSlides <= 1) {
+            if (prevBtn) prevBtn.style.display = 'none';
+            if (nextBtn) nextBtn.style.display = 'none';
+            if (playBtn) playBtn.style.display = 'none';
+            if (counter) counter.style.display = 'none';
+            if (dotsContainer) dotsContainer.style.display = 'none';
+            return;
+        }
+
+        // Gera os indicadores em formato de pontos (dots) navegáveis
+        if (dotsContainer) {
+            dotsContainer.innerHTML = '';
+            for (let i = 0; i < totalSlides; i++) {
+                const dot = document.createElement('button');
+                dot.type = 'button';
+                dot.className = `carousel-dot ${i === 0 ? 'active' : ''}`;
+                dot.setAttribute('aria-label', `Navegar para slide ${i + 1}`);
+                dot.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    goToSlide(i);
+                    resetAutoplay();
+                });
+                dotsContainer.appendChild(dot);
+            }
+        }
+
+        const dots = dotsContainer ? dotsContainer.querySelectorAll('.carousel-dot') : [];
+
+        function updateUI() {
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+            dots.forEach((dot, idx) => {
+                dot.classList.toggle('active', idx === currentIndex);
+            });
+
+            if (counter) {
+                counter.textContent = `${currentIndex + 1} / ${totalSlides}`;
+            }
+        }
+
+        function goToSlide(index) {
+            if (index < 0) {
+                currentIndex = totalSlides - 1;
+            } else if (index >= totalSlides) {
+                currentIndex = 0;
+            } else {
+                currentIndex = index;
+            }
+            updateUI();
+        }
+
+        function nextSlide() {
+            goToSlide(currentIndex + 1);
+        }
+
+        function prevSlide() {
+            goToSlide(currentIndex - 1);
+        }
+
+        // Controle do Temporizador de Rotação Automática (4s)
+        function startTimer() {
+            stopTimer();
+            if (isPlaying && !isHovered) {
+                timer = setInterval(nextSlide, intervalTime);
+            }
+        }
+
+        function stopTimer() {
+            if (timer) {
+                clearInterval(timer);
+                timer = null;
+            }
+        }
+
+        function resetAutoplay() {
+            if (isPlaying) {
+                startTimer();
+            }
+        }
+
+        // Botões Manuais Anterior e Próximo
+        if (prevBtn) {
+            prevBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                prevSlide();
+                resetAutoplay();
+            });
+        }
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                nextSlide();
+                resetAutoplay();
+            });
+        }
+
+        // Botão Play/Pausa
+        if (playBtn) {
+            playBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                isPlaying = !isPlaying;
+                if (isPlaying) {
+                    playBtn.innerHTML = '<i class="fa-solid fa-pause"></i>';
+                    playBtn.setAttribute('title', 'Pausar rotação automática');
+                    playBtn.setAttribute('aria-label', 'Pausar rotação automática');
+                    playBtn.classList.remove('paused');
+                    startTimer();
+                } else {
+                    playBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
+                    playBtn.setAttribute('title', 'Iniciar rotação automática');
+                    playBtn.setAttribute('aria-label', 'Iniciar rotação automática');
+                    playBtn.classList.add('paused');
+                    stopTimer();
+                }
+            });
+        }
+
+        // Pausa automática no Hover
+        carousel.addEventListener('mouseenter', () => {
+            isHovered = true;
+            stopTimer();
+        });
+
+        carousel.addEventListener('mouseleave', () => {
+            isHovered = false;
+            if (isPlaying) {
+                startTimer();
+            }
+        });
+
+        // Suporte a Gesto de Arrastar / Swipe em Dispositivos Móveis e Touch
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let touchEndX = 0;
+        let touchEndY = 0;
+        const swipeThreshold = 40;
+
+        carousel.addEventListener('touchstart', (e) => {
+            if (e.touches.length === 1) {
+                touchStartX = e.touches[0].clientX;
+                touchStartY = e.touches[0].clientY;
+            }
+        }, { passive: true });
+
+        carousel.addEventListener('touchend', (e) => {
+            if (e.changedTouches.length === 1) {
+                touchEndX = e.changedTouches[0].clientX;
+                touchEndY = e.changedTouches[0].clientY;
+                handleSwipe();
+            }
+        }, { passive: true });
+
+        function handleSwipe() {
+            const diffX = touchEndX - touchStartX;
+            const diffY = touchEndY - touchStartY;
+
+            // Garante que o swipe horizontal é intencional
+            if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > swipeThreshold) {
+                if (diffX < 0) {
+                    nextSlide(); // Arrasto para a esquerda -> próximo
+                } else {
+                    prevSlide(); // Arrasto para a direita -> anterior
+                }
+                resetAutoplay();
+            }
+        }
+
+        // Inicializa o primeiro estado e liga o temporizador se ativado
+        updateUI();
+        if (isPlaying) {
+            startTimer();
+        }
+    });
 }
