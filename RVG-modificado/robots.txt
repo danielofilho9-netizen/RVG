@@ -1,0 +1,6 @@
+# Arquivo de desenvolvimento. O build (tools/build.ps1) gera o robots.txt final do ambiente:
+#   - produção: permite rastreamento e informa o sitemap com o domínio confirmado;
+#   - preview/teste: bloqueia tudo (Disallow: /) para não competir com o site público.
+# Este arquivo NÃO protege informações privadas; nada confidencial deve ser publicado.
+User-agent: *
+Allow: /

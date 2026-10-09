@@ -1,0 +1,19 @@
+{
+  "siteUrl": "",
+  "environment": "production",
+  "business": {
+    "name": "RVG Soluções Integradas",
+    "slogan": "Sua necessidade é nosso desafio",
+    "foundingDate": "2015",
+    "telephone": "+5551982124987",
+    "telephoneVisible": "(51) 9 8212-4987",
+    "email": "rafaelvidor@rvgsoluçõesintegradas.com.br",
+    "address": {
+      "streetAddress": "Rua Riachuelo, 1612",
+      "addressLocality": "Porto Alegre",
+      "addressRegion": "RS",
+      "addressCountry": "BR"
+    },
+    "sameAs": [ "https://instagram.com/rvg.solucoes" ]
+  }
+}
