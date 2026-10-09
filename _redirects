@@ -1,0 +1,8 @@
+# Redirecionamentos permanentes (formato Netlify / Cloudflare Pages): origem destino status
+# A home tem uma única URL: "/". O endereço antigo /index.html passa a apontar para ela.
+# (No Netlify, redirecionar um arquivo existente exige "301!": veja docs/hospedagem-e-seguranca.md.)
+/index.html  /  301
+/servicos/acesso-por-cordas/index.html  /servicos/acesso-por-cordas/  301
+/servicos/gestao-condominial/index.html  /servicos/gestao-condominial/  301
+/servicos/projetos-e-manutencao/index.html  /servicos/projetos-e-manutencao/  301
+/servicos/automacao-e-luminotecnica/index.html  /servicos/automacao-e-luminotecnica/  301

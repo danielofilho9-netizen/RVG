@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automação e Projeto Luminotécnico | RVG Soluções Integradas</title>
+    <meta name="description" content="Automação residencial, predial e industrial e design luminotécnico: iluminação arquitetural, retrofit, redes DMX512 e painéis cênicos.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="/servicos/automacao-e-luminotecnica/">
+    <meta name="theme-color" content="#070C16">
+
+    <!-- Compartilhamento (Open Graph / Twitter). URLs absolutas são geradas no build (tools/build.ps1) -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="RVG Soluções Integradas">
+    <meta property="og:title" content="Automação e Projeto Luminotécnico | RVG Soluções Integradas">
+    <meta property="og:description" content="Automação residencial, predial e industrial e design luminotécnico: iluminação arquitetural, retrofit, redes DMX512 e painéis cênicos.">
+    <meta property="og:url" content="/servicos/automacao-e-luminotecnica/">
+    <meta property="og:image" content="/assets/result_servico_automacao_luminotecnica.jpg">
+    <meta property="og:image:width" content="1199">
+    <meta property="og:image:height" content="628">
+    <meta property="og:image:alt" content="Iluminação cênica colorida na fachada de um edifício à noite">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Automação e Projeto Luminotécnico | RVG Soluções Integradas">
+    <meta name="twitter:description" content="Automação residencial, predial e industrial e design luminotécnico: iluminação arquitetural, retrofit, redes DMX512 e painéis cênicos.">
+    <meta name="twitter:image" content="/assets/result_servico_automacao_luminotecnica.jpg">
+
+    <!-- Ícones -->
+    <link rel="icon" href="../../favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="96x96" href="../../favicon-96x96.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+    <link rel="manifest" href="../../site.webmanifest">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600..900&family=Plus+Jakarta+Sans:wght@400..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="../../css/styles.css">
+    <script src="../../js/js-flag.js"></script>
+</head>
+<body>
+<div class="page-wrapper">
+
+    <canvas id="bg-canvas" class="bg-canvas" aria-hidden="true"></canvas>
+    <div class="bg-grid" aria-hidden="true"></div>
+
+    <!-- Top Bar -->
+    <div class="topbar_component">
+        <div class="padding-global">
+            <div class="container-large">
+                <div class="topbar_content">
+                    <div class="topbar_info">
+                        <span><i class="fa-solid fa-location-dot"></i> Sede em Porto Alegre</span>
+                        <span><i class="fa-solid fa-clock"></i> Atendimento Rápido &amp; Suporte Técnico</span>
+                    </div>
+                    <div class="topbar_contact">
+                        <a href="https://wa.me/5551982124987?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20com%20a%20RVG%20Solu%C3%A7%C3%B5es%20Integradas." target="_blank" rel="noopener" class="topbar_link is-phone">
+                            <i class="fa-brands fa-whatsapp"></i> (51) 9 8212-4987
+                        </a>
+                        <a href="mailto:rafaelvidor@xn--rvgsoluesintegradas-cyb80a.com.br" class="topbar_link">
+                            <i class="fa-solid fa-envelope"></i> rafaelvidor@rvgsoluçõesintegradas.com.br
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <header class="navbar_component" id="header">
+        <div class="padding-global">
+            <div class="container-large">
+                <div class="navbar_container">
+                    <a href="../../#hero" class="navbar_logo-link" aria-label="RVG Soluções Integradas — Início">
+                        <img src="../../assets/img/logo-96.webp" alt="RVG Soluções Integradas Logo Oficial" class="navbar_logo" width="48" height="48">
+                        <span class="navbar_brand">
+                            <span class="navbar_brand-title">RVG</span>
+                            <span class="navbar_brand-subtitle">SOLUÇÕES INTEGRADAS</span>
+                        </span>
+                    </a>
+
+                    <nav class="navbar_menu" id="nav-menu" aria-label="Navegação principal">
+                        <ul class="navbar_menu-list">
+                            <li><a href="../../#hero" class="navbar_link">Início</a></li>
+                            <li><a href="../../#historia" class="navbar_link">História</a></li>
+                            <li><a href="../../#visao-missao" class="navbar_link">Visão &amp; Missão</a></li>
+                            <li><a href="../../#servicos" class="navbar_link is-highlight"><i class="fa-solid fa-mountain-city"></i> Serviços</a></li>
+                            <li><a href="../../#proposta-tecnica" class="navbar_link">Proposta Técnica</a></li>
+                            <li><a href="../../#contato" class="navbar_link">Contato</a></li>
+                        </ul>
+                        <div class="navbar_mobile-actions">
+                            <a href="https://wa.me/5551982124987?text=Ol%C3%A1%2C%20preciso%20de%20um%20atendimento%20t%C3%A9cnico%20da%20RVG." target="_blank" rel="noopener" class="button is-full">
+                                <i class="fa-brands fa-whatsapp"></i> WhatsApp: (51) 9 8212-4987
+                            </a>
+                            <a href="mailto:rafaelvidor@xn--rvgsoluesintegradas-cyb80a.com.br?subject=Solicita%C3%A7%C3%A3o%20de%20Or%C3%A7amento%20-%20RVG%20Solu%C3%A7%C3%B5es" class="button is-secondary is-full">
+                                <i class="fa-solid fa-envelope"></i> E-mail Corporativo
+                            </a>
+                        </div>
+                    </nav>
+
+                    <div class="navbar_button-wrapper">
+                        <a href="https://wa.me/5551982124987?text=Ol%C3%A1%2C%20preciso%20de%20um%20atendimento%20t%C3%A9cnico%20da%20RVG." target="_blank" rel="noopener" class="button is-small" title="WhatsApp Direto">
+                            <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                        </a>
+                        <a href="mailto:rafaelvidor@xn--rvgsoluesintegradas-cyb80a.com.br?subject=Solicita%C3%A7%C3%A3o%20de%20Or%C3%A7amento%20-%20RVG%20Solu%C3%A7%C3%B5es" class="button is-secondary is-small" title="Enviar E-mail">
+                            <i class="fa-solid fa-envelope"></i> E-mail
+                        </a>
+                    </div>
+
+                    <div class="navbar_mobile-buttons">
+                        <a href="https://wa.me/5551982124987?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20com%20a%20RVG%20Solu%C3%A7%C3%B5es." target="_blank" rel="noopener" class="navbar_wa-button" aria-label="Falar no WhatsApp">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                        <button class="navbar_menu-button" id="mobile-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-menu">
+                            <i class="fa-solid fa-bars"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-wrapper">
+
+        <section class="section_service-hero" id="servico">
+            <div class="padding-global">
+                <div class="container-large">
+                    <div class="padding-section-medium">
+                        <nav aria-label="Você está em">
+                            <ol class="breadcrumb_list">
+                                <li><a href="../../">Início</a></li>
+                                <li aria-current="page">Automação e Luminotécnica</li>
+                            </ol>
+                        </nav>
+                        <div class="service-hero_grid">
+                            <div>
+                                <div class="section-heading_label"><span class="section-heading_index"><i class="fa-solid fa-wand-magic-sparkles"></i></span> Serviço RVG</div>
+                                <h1 class="section-heading_title service-hero_title">Automação e Luminotécnica</h1>
+                                <p class="service-hero_lead">Automação inteligente de ambientes residenciais, industriais e prediais com design luminotécnico de alto impacto.</p>
+                                <p class="service-hero_text">Os projetos unem automação e iluminação — de ambientes corporativos a fachadas e iluminação cênica — e podem contar com contratos de manutenção preventiva e corretiva.</p>
+                                <div class="service-hero_actions">
+                                    <a href="https://wa.me/5551982124987?text=Gostaria%20de%20saber%20mais%20sobre%20Automa%C3%A7%C3%A3o%20e%20Luminot%C3%A9cnica." target="_blank" rel="noopener" class="button is-large"><i class="fa-brands fa-whatsapp"></i> Pedir orçamento</a>
+                                    <a href="../../#proposta-tecnica" class="button is-secondary is-large"><i class="fa-solid fa-file-signature"></i> Solicitar proposta técnica</a>
+                                </div>
+                            </div>
+                            <div class="service-hero_media"><picture><source type="image/webp" srcset="../../assets/img/servico_automacao_luminotecnica-640.webp 640w, ../../assets/img/servico_automacao_luminotecnica-1200.webp 1200w" sizes="(min-width: 992px) 560px, calc(100vw - 3rem)"><img src="../../assets/result_servico_automacao_luminotecnica.jpg" alt="Iluminação cênica colorida na fachada de um edifício à noite" width="1199" height="628" decoding="async" fetchpriority="high"></picture></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="service-stats" aria-label="Diferenciais da RVG">
+            <div class="hero_stats">
+                <div class="padding-global">
+                    <div class="container-large">
+                        <div class="hero_stats-list">
+                            <div class="hero_stats-item"><span class="hero_stats-number">10+</span><span class="hero_stats-label">anos de excelência (Desde 2015)</span></div>
+                            <div class="hero_stats-item"><span class="hero_stats-number">100%</span><span class="hero_stats-label">Conformidade NR-35 &amp; NR-10</span></div>
+                            <div class="hero_stats-item"><span class="hero_stats-number">ART</span><span class="hero_stats-label">Documentação CREA Inclusa</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section_service-block" id="o-que-inclui">
+            <div class="padding-global">
+                <div class="container-large">
+                    <div class="padding-section-medium">
+                        <div class="section-heading_component is-center" data-reveal>
+                            <div class="section-heading_label"><span class="section-heading_index">01</span> O serviço</div>
+                            <h2 class="section-heading_title">O que inclui em Automação e Luminotécnica</h2>
+                        </div>
+                        <div class="service-detail_grid">
+                            <article class="service-detail_item" data-reveal>
+                                <h3 class="service-detail_title">Iluminação Arquitetural</h3>
+                                <p class="service-detail_text">Design luminotécnico inteligente integrado interno/externo, valorizando seu negócio ou empreendimento.</p>
+                            </article>
+                            <article class="service-detail_item" data-reveal>
+                                <h3 class="service-detail_title">Eficiência Energética e Retrofit</h3>
+                                <p class="service-detail_text">Redução de consumo e modernização.</p>
+                            </article>
+                            <article class="service-detail_item" data-reveal>
+                                <h3 class="service-detail_title">Ambientes Corporativos</h3>
+                                <p class="service-detail_text">Automação e luminotécnica em escritórios e ambientes corporativos.</p>
+                            </article>
+                            <article class="service-detail_item" data-reveal>
+                                <h3 class="service-detail_title">Redes DMX512</h3>
+                                <p class="service-detail_text">Projetos com protocolo DMX para iluminação cênica.</p>
+                            </article>
+                            <article class="service-detail_item" data-reveal>
+                                <h3 class="service-detail_title">Painéis Cênicos e Letreiros Luminosos</h3>
+                                <p class="service-detail_text">Projetos personalizados.</p>
+                            </article>
+                            <article class="service-detail_item" data-reveal>
+                                <h3 class="service-detail_title">Contratos de Manutenção</h3>
+                                <p class="service-detail_text">Preventiva e corretiva.</p>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section_service-block" id="necessidades">
+            <div class="padding-global">
+                <div class="container-large">
+                    <div class="padding-section-medium">
+                        <div class="section-heading_component is-center" data-reveal>
+                            <div class="section-heading_label"><span class="section-heading_index">02</span> Necessidades atendidas</div>
+                            <h2 class="section-heading_title">Quando contratar Automação e Luminotécnica</h2>
+                        </div>
+                        <ul class="service-need_list is-center" data-reveal>
+                            <li class="service-need_item"><strong>Valorizar o negócio ou o empreendimento:</strong> design luminotécnico inteligente integrado, interno e externo.</li>
+                            <li class="service-need_item"><strong>Reduzir consumo e modernizar:</strong> eficiência energética e retrofit.</li>
+                            <li class="service-need_item"><strong>Escritórios e ambientes corporativos:</strong> automação e luminotécnica.</li>
+                            <li class="service-need_item"><strong>Iluminação cênica:</strong> redes DMX512, painéis cênicos e letreiros luminosos personalizados.</li>
+                            <li class="service-need_item"><strong>Continuidade:</strong> contratos de manutenção preventiva e corretiva.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section_service-block" id="normas">
+            <div class="padding-global">
+                <div class="container-large">
+                    <div class="padding-section-medium">
+                        <div class="section-heading_component is-center" data-reveal>
+                            <div class="section-heading_label"><span class="section-heading_index">03</span> Conformidade</div>
+                            <h2 class="section-heading_title">Normas e documentação</h2>
+                            <p class="section-heading_subtitle">Referências de conformidade apresentadas pela RVG para este serviço.</p>
+                        </div>
+                        <div class="compliance_list" data-reveal>
+                            <div class="compliance_item"><i class="fa-solid fa-plug-circle-check"></i><span><strong>NR-10</strong> Segurança Elétrica</span></div>
+                            <div class="compliance_item"><i class="fa-solid fa-stamp"></i><span><strong>CREA / ART</strong> Laudos Oficiais</span></div>
+                        </div>
+                        <p class="service-note">Projetos elétricos, SPDA, CFTV e redes estão em <a href="../projetos-e-manutencao/">Projetos e Manutenção</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section_service-block" id="fotos">
+            <div class="padding-global">
+                <div class="container-large">
+                    <div class="padding-section-medium">
+                        <div class="section-heading_component is-center" data-reveal>
+                            <div class="section-heading_label"><span class="section-heading_index">04</span> Galeria</div>
+                            <h2 class="section-heading_title">Fotos de Automação e Luminotécnica</h2>
+                        </div>
+                        <div class="service-gallery_grid is-single">
+                            <figure class="service-gallery_figure" data-reveal><picture><source type="image/webp" srcset="../../assets/img/luminotecnico_fachada_noturna-640.webp 640w, ../../assets/img/luminotecnico_fachada_noturna-1200.webp 1200w" sizes="(min-width: 992px) 600px, calc(100vw - 3rem)"><img src="../../assets/result_luminotecnico_fachada_noturna.jpg" alt="Projeto Luminotécnico - Iluminação Cênica em Fachada Noturna" width="1200" height="628" loading="lazy" decoding="async"></picture></figure>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section_service-block" id="como-solicitar">
+            <div class="padding-global">
+                <div class="container-large">
+                    <div class="padding-section-medium">
+                        <div class="service-cta_component" data-reveal>
+                            <h2 class="service-cta_title">Como solicitar</h2>
+                            <p class="service-cta_text">Fale diretamente com nossa equipe técnica para orçamentos, vistorias ou suporte operacional. Se preferir, preencha a Solicitação de Proposta Técnica na página inicial.</p>
+                            <div class="service-cta_actions">
+                                <a href="https://wa.me/5551982124987?text=Gostaria%20de%20saber%20mais%20sobre%20Automa%C3%A7%C3%A3o%20e%20Luminot%C3%A9cnica." target="_blank" rel="noopener" class="button is-large"><i class="fa-brands fa-whatsapp"></i> WhatsApp: (51) 9 8212-4987</a>
+                                <a href="mailto:rafaelvidor@xn--rvgsoluesintegradas-cyb80a.com.br?subject=Or%C3%A7amento%20-%20Automa%C3%A7%C3%A3o%20e%20Luminot%C3%A9cnica" class="button is-secondary is-large"><i class="fa-solid fa-envelope"></i> Enviar e-mail</a>
+                            </div>
+                            <div class="service-cta_contacts">
+                                <span><i class="fa-solid fa-envelope"></i><a href="mailto:rafaelvidor@xn--rvgsoluesintegradas-cyb80a.com.br">rafaelvidor@rvgsoluçõesintegradas.com.br</a></span>
+                                <span><i class="fa-solid fa-location-dot"></i>Sede: Rua Riachuelo, 1612 — Porto Alegre / RS</span>
+                            </div>
+                            <p class="service-note is-center">Atendimento em outras localidades: <a href="../../#contato">entre em contato</a> e consulte a disponibilidade.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section_service-block" id="outros-servicos">
+            <div class="padding-global">
+                <div class="container-large">
+                    <div class="padding-section-medium">
+                        <div class="section-heading_component is-center" data-reveal>
+                            <div class="section-heading_label"><span class="section-heading_index">05</span> Continue explorando</div>
+                            <h2 class="section-heading_title">Outros serviços da RVG</h2>
+                        </div>
+                        <div class="service-related_list">
+                            <a class="service-related_link" href="../projetos-e-manutencao/" data-reveal><span class="service-related_name">Projetos e Manutenção</span><span class="service-related_desc">Projetos elétricos, padrão de entrada, SPDA, CFTV, redes e laudos com ART.</span></a>
+                            <a class="service-related_link" href="../gestao-condominial/" data-reveal><span class="service-related_name">Gestão Condominial</span><span class="service-related_desc">Manutenções, elétrica, CFTV, fachadas e laudos para condomínios.</span></a>
+                            <a class="service-related_link" href="../acesso-por-cordas/" data-reveal><span class="service-related_name">Acesso por Cordas</span><span class="service-related_desc">Linhas de vida, inspeções, resgate, fachadas e trabalhos técnicos em altura.</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer_component">
+        <div class="padding-global">
+            <div class="container-large">
+                <div class="footer_grid">
+                    <div class="footer_brand">
+                        <div class="footer_logo-wrapper">
+                            <img src="../../assets/img/logo-96.webp" alt="RVG Soluções Integradas" class="footer_logo" width="44" height="44" loading="lazy" decoding="async">
+                            <span class="navbar_brand">
+                                <span class="navbar_brand-title">RVG</span>
+                                <span class="navbar_brand-subtitle">SOLUÇÕES INTEGRADAS</span>
+                            </span>
+                        </div>
+                        <p class="footer_text">Especialistas em Acesso por Cordas, Projetos Elétricos, Automação, Luminotécnica e Gestão de Infraestrutura Condominial.</p>
+                        <p class="footer_slogan">"Sua necessidade é o nosso desafio."</p>
+                    </div>
+                    <div class="footer_column">
+                        <h2 class="footer_heading">Links Rápidos</h2>
+                        <ul class="footer_link-list">
+                            <li><a href="../../#hero" class="footer_link">Início</a></li>
+                            <li><a href="../../#historia" class="footer_link">História</a></li>
+                            <li><a href="../../#visao-missao" class="footer_link">Visão e Missão</a></li>
+                            <li><a href="../../#servicos" class="footer_link">Serviços</a></li>
+                            <li><a href="../../#proposta-tecnica" class="footer_link">Proposta Técnica</a></li>
+                            <li><a href="../../#contato" class="footer_link">Contato</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer_column">
+                        <h2 class="footer_heading">Nossos Serviços</h2>
+                        <ul class="footer_link-list">
+                            <li><a href="../../servicos/acesso-por-cordas/" class="footer_link">Acesso por Cordas</a></li>
+                            <li><a href="../../servicos/gestao-condominial/" class="footer_link">Gestão Condominial</a></li>
+                            <li><a href="../../servicos/projetos-e-manutencao/" class="footer_link">Projetos e Manutenção</a></li>
+                            <li><a href="../../servicos/automacao-e-luminotecnica/" class="footer_link">Automação e Luminotécnica</a></li>
+                            <li><a href="../../servicos/projetos-e-manutencao/#redes-e-cabeamento" class="footer_link">Redes e Cabeamento</a></li>
+                            <li><a href="../../servicos/projetos-e-manutencao/#laudos-e-documentacoes" class="footer_link">Laudos Técnicos com ART</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer_column">
+                        <h2 class="footer_heading">Contato Direto</h2>
+                        <ul class="footer_link-list">
+                            <li class="footer_contact-item"><i class="fa-solid fa-headset"></i> Atendimento Especializado</li>
+                            <li class="footer_contact-item"><i class="fa-solid fa-location-dot"></i> Rua Riachuelo, 1612 — Porto Alegre / RS</li>
+                            <li><a href="https://wa.me/5551982124987" target="_blank" rel="noopener" class="footer_link is-whatsapp"><i class="fa-brands fa-whatsapp"></i> (51) 9 8212 - 4987</a></li>
+                            <li><a href="mailto:rafaelvidor@xn--rvgsoluesintegradas-cyb80a.com.br" class="footer_link"><i class="fa-solid fa-envelope"></i> rafaelvidor@rvgsoluçõesintegradas.com.br</a></li>
+                            <li><a href="https://instagram.com/rvg.solucoes" target="_blank" rel="noopener" class="footer_link"><i class="fa-brands fa-instagram"></i> @rvg.solucoes</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer_bottom">
+                    <p>&copy; 2026 RVG Soluções Integradas. Todos os direitos reservados. Porto Alegre.</p>
+                    <p class="footer_legal">Conformidade NR-35 ANEXO 1, NR-10, CREA-RS &amp; NBR 5410.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp flutuante -->
+    <a href="https://wa.me/5551982124987?text=Ol%C3%A1!%20Gostaria%20de%20atendimento%20t%C3%A9cnico%20da%20RVG%20Solu%C3%A7%C3%B5es%20Integradas." class="whatsapp-float_component" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span class="whatsapp-float_tooltip">Falar no WhatsApp</span>
+    </a>
+
+</div>
+
+<script src="../../js/app.js" defer></script>
+</body>
+</html>

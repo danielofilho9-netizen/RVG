@@ -3,784 +3,741 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RVG Soluções Integradas | Acesso por Cordas, Projetos Elétricos, Automação e Gestão Condominial</title>
-    <meta name="description" content="RVG Soluções Integradas - Especialistas em Acesso por Cordas (Alpinismo Industrial), Gestão Condominial, Projetos Elétricos, Automação, Luminotécnica e SPDA em Porto Alegre.">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/jpeg" href="assets/favicon.jpg">
-    <link rel="shortcut icon" type="image/jpeg" href="assets/favicon.jpg">
-    <link rel="apple-touch-icon" href="assets/favicon.jpg">
+    <title>RVG Soluções Integradas | Acesso por Cordas, Elétrica e Automação</title>
+    <meta name="description" content="Acesso por cordas, projetos e manutenção elétrica, automação, luminotécnica e gestão condominial. RVG Soluções Integradas, com sede em Porto Alegre.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="/">
+    <meta name="theme-color" content="#070C16">
 
-    <!-- Google Fonts -->
+    <!-- Compartilhamento (Open Graph / Twitter). URLs absolutas são geradas no build (tools/build.ps1) -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="RVG Soluções Integradas">
+    <meta property="og:title" content="RVG Soluções Integradas | Acesso por Cordas, Elétrica e Automação">
+    <meta property="og:description" content="Acesso por cordas, projetos e manutenção elétrica, automação, luminotécnica e gestão condominial. Sede em Porto Alegre.">
+    <meta property="og:url" content="/">
+    <meta property="og:image" content="/assets/img/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="RVG Soluções Integradas: profissional em acesso por cordas na fachada de um edifício">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="RVG Soluções Integradas | Acesso por Cordas, Elétrica e Automação">
+    <meta name="twitter:description" content="Acesso por cordas, projetos e manutenção elétrica, automação, luminotécnica e gestão condominial.">
+    <meta name="twitter:image" content="/assets/img/og-image.jpg">
+
+    <!-- Ícones -->
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+
+    <!-- Quadro de abertura do vídeo (candidato a LCP): baixado com prioridade -->
+    <link rel="preload" as="image" href="assets/img/hero-poster.webp" type="image/webp" fetchpriority="high">
+
+    <!-- Fontes (Outfit nos títulos, Plus Jakarta Sans no texto): apenas os pesos usados -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600..900&family=Plus+Jakarta+Sans:wght@400..800&display=swap" rel="stylesheet">
 
-    <!-- Custom Stylesheet -->
+    <!-- Font Awesome 6.5.1 (integridade verificada contra o CDN) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
     <link rel="stylesheet" href="css/styles.css">
+    <script src="js/js-flag.js"></script>
 </head>
 <body>
+<div class="page-wrapper">
 
-    <!-- Canvas para Partículas de Fundo / Grid Tecnológico -->
-    <canvas id="bg-canvas"></canvas>
+    <!-- Fundo: partículas + grade técnica -->
+    <canvas id="bg-canvas" class="bg-canvas" aria-hidden="true"></canvas>
+    <div class="bg-grid" aria-hidden="true"></div>
 
-    <!-- Top Emergency & Quick Info Bar -->
-    <div class="top-bar">
-        <div class="container top-bar-content">
-            <div class="top-info">
-                <span><i class="fa-solid fa-location-dot"></i> Porto Alegre</span>
-                <span><i class="fa-solid fa-clock"></i> Atendimento Rápido &amp; Suporte Técnico</span>
-            </div>
-            <div class="top-contact">
-                <a href="https://wa.me/5551982124987?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20com%20a%20RVG%20Solu%C3%A7%C3%B5es%20Integradas." target="_blank" class="top-phone">
-                    <i class="fa-brands fa-whatsapp"></i> (51) 9 8212-4987
-                </a>
-                <a href="mailto:rvg.solucoes.integradas@gmail.com" class="top-email">
-                    <i class="fa-solid fa-envelope"></i> rvg.solucoes.integradas@gmail.com
-                </a>
+    <!-- Efeito "power up" dos serviços: blecaute global (opacidade controlada pela rolagem) -->
+    <div class="power_blackout" aria-hidden="true"></div>
+
+    <!-- Top Bar -->
+    <div class="topbar_component">
+        <div class="padding-global">
+            <div class="container-large">
+                <div class="topbar_content">
+                    <div class="topbar_info">
+                        <span><i class="fa-solid fa-location-dot"></i> Sede em Porto Alegre</span>
+                        <span><i class="fa-solid fa-clock"></i> Atendimento Rápido &amp; Suporte Técnico</span>
+                    </div>
+                    <div class="topbar_contact">
+                        <a href="https://wa.me/5551982124987?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20com%20a%20RVG%20Solu%C3%A7%C3%B5es%20Integradas." target="_blank" rel="noopener" class="topbar_link is-phone">
+                            <i class="fa-brands fa-whatsapp"></i> (51) 9 8212-4987
+                        </a>
+                        <a href="mailto:rafaelvidor@xn--rvgsoluesintegradas-cyb80a.com.br" class="topbar_link">
+                            <i class="fa-solid fa-envelope"></i> rafaelvidor@rvgsoluçõesintegradas.com.br
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Header Navigation Bar com Logo Transparente -->
-    <header class="main-header" id="header">
-        <div class="container header-container">
-            <!-- Brand Logo Oficial da RVG (Fundo Transparente) -->
-            <a href="#hero" class="brand-logo">
-                <img src="assets/official_logo_transparent.png" alt="RVG Soluções Integradas Logo Oficial" class="brand-logo-img">
-                <div class="brand-text">
-                    <span class="rvg-title">RVG</span>
-                    <span class="rvg-subtitle">SOLUÇÕES INTEGRADAS</span>
-                </div>
-            </a>
-
-            <!-- Mobile Actions (WhatsApp Direto + Menu Hambúrguer) -->
-            <div class="mobile-header-actions">
-                <a href="https://wa.me/5551982124987?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20com%20a%20RVG%20Solu%C3%A7%C3%B5es." target="_blank" class="mobile-header-wa" aria-label="Falar no WhatsApp" title="WhatsApp Direto">
-                    <i class="fa-brands fa-whatsapp"></i>
-                </a>
-                <button class="mobile-toggle" id="mobile-toggle" aria-label="Abrir menu">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
-            </div>
-
-            <!-- Navigation Links -->
-            <nav class="nav-menu" id="nav-menu">
-                <ul>
-                    <li><a href="#hero" class="nav-link active">Início</a></li>
-                    <li><a href="#historia" class="nav-link">História</a></li>
-                    <li><a href="#visao-missao" class="nav-link">Visão &amp; Missão</a></li>
-                    <li><a href="#servicos" class="nav-link highlight-link"><i class="fa-solid fa-mountain-city"></i> Serviços</a></li>
-                    <li><a href="#proposta-tecnica" class="nav-link">Proposta Técnica</a></li>
-                    <li><a href="#contato" class="nav-link">Contato</a></li>
-                </ul>
-
-                <!-- Mobile Drawer Direct Actions -->
-                <div class="nav-mobile-actions">
-                    <a href="https://wa.me/5551982124987?text=Ol%C3%A1%2C%20preciso%20de%20um%20atendimento%20t%C3%A9cnico%20da%20RVG." target="_blank" class="btn btn-gold nav-mob-btn">
-                        <i class="fa-brands fa-whatsapp"></i> WhatsApp: (51) 9 8212-4987
+    <!-- Navbar -->
+    <header class="navbar_component" id="header">
+        <div class="padding-global">
+            <div class="container-large">
+                <div class="navbar_container">
+                    <a href="#hero" class="navbar_logo-link" aria-label="RVG Soluções Integradas — Início">
+                        <img src="assets/img/logo-96.webp" alt="RVG Soluções Integradas Logo Oficial" class="navbar_logo" width="48" height="48">
+                        <span class="navbar_brand">
+                            <span class="navbar_brand-title">RVG</span>
+                            <span class="navbar_brand-subtitle">SOLUÇÕES INTEGRADAS</span>
+                        </span>
                     </a>
-                    <a href="mailto:rvg.solucoes.integradas@gmail.com?subject=Solicita%C3%A7%C3%A3o%20de%20Or%C3%A7amento%20-%20RVG%20Solu%C3%A7%C3%B5es" class="btn btn-outline nav-mob-btn">
-                        <i class="fa-solid fa-envelope"></i> E-mail Corporativo
-                    </a>
-                </div>
-            </nav>
 
-            <!-- Header Action Buttons (WhatsApp e Email - Desktop) -->
-            <div class="header-actions">
-                <a href="https://wa.me/5551982124987?text=Ol%C3%A1%2C%20preciso%20de%20um%20atendimento%20t%C3%A9cnico%20da%20RVG." target="_blank" class="btn btn-primary header-cta" title="WhatsApp Directo">
-                    <i class="fa-brands fa-whatsapp"></i> WhatsApp
-                </a>
-                <a href="mailto:rvg.solucoes.integradas@gmail.com?subject=Solicita%C3%A7%C3%A3o%20de%20Or%C3%A7amento%20-%20RVG%20Solu%C3%A7%C3%B5es" class="btn btn-outline header-cta-mail" title="Enviar E-mail">
-                    <i class="fa-solid fa-envelope"></i> E-mail
-                </a>
+                    <nav class="navbar_menu" id="nav-menu" aria-label="Navegação principal">
+                        <ul class="navbar_menu-list">
+                            <li><a href="#hero" class="navbar_link is-active">Início</a></li>
+                            <li><a href="#historia" class="navbar_link">História</a></li>
+                            <li><a href="#visao-missao" class="navbar_link">Visão &amp; Missão</a></li>
+                            <li><a href="#servicos" class="navbar_link is-highlight"><i class="fa-solid fa-mountain-city"></i> Serviços</a></li>
+                            <li><a href="#proposta-tecnica" class="navbar_link">Proposta Técnica</a></li>
+                            <li><a href="#contato" class="navbar_link">Contato</a></li>
+                        </ul>
+                        <div class="navbar_mobile-actions">
+                            <a href="https://wa.me/5551982124987?text=Ol%C3%A1%2C%20preciso%20de%20um%20atendimento%20t%C3%A9cnico%20da%20RVG." target="_blank" rel="noopener" class="button is-full">
+                                <i class="fa-brands fa-whatsapp"></i> WhatsApp: (51) 9 8212-4987
+                            </a>
+                            <a href="mailto:rafaelvidor@xn--rvgsoluesintegradas-cyb80a.com.br?subject=Solicita%C3%A7%C3%A3o%20de%20Or%C3%A7amento%20-%20RVG%20Solu%C3%A7%C3%B5es" class="button is-secondary is-full">
+                                <i class="fa-solid fa-envelope"></i> E-mail Corporativo
+                            </a>
+                        </div>
+                    </nav>
+
+                    <div class="navbar_button-wrapper">
+                        <a href="https://wa.me/5551982124987?text=Ol%C3%A1%2C%20preciso%20de%20um%20atendimento%20t%C3%A9cnico%20da%20RVG." target="_blank" rel="noopener" class="button is-small" title="WhatsApp Direto">
+                            <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                        </a>
+                        <a href="mailto:rafaelvidor@xn--rvgsoluesintegradas-cyb80a.com.br?subject=Solicita%C3%A7%C3%A3o%20de%20Or%C3%A7amento%20-%20RVG%20Solu%C3%A7%C3%B5es" class="button is-secondary is-small" title="Enviar E-mail">
+                            <i class="fa-solid fa-envelope"></i> E-mail
+                        </a>
+                    </div>
+
+                    <div class="navbar_mobile-buttons">
+                        <a href="https://wa.me/5551982124987?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20com%20a%20RVG%20Solu%C3%A7%C3%B5es." target="_blank" rel="noopener" class="navbar_wa-button" aria-label="Falar no WhatsApp">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                        <button class="navbar_menu-button" id="mobile-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-menu">
+                            <i class="fa-solid fa-bars"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
 
-    <!-- ============================================================
-         HERO SECTION (Banner Fullscreen Desktop / Sem Cortes no Mobile)
-         ============================================================ -->
-    <section class="hero-fullscreen" id="hero">
-        <div class="hero-banner-container">
-            <img src="assets/hero_banner_full.jpg" alt="RVG Soluções Integradas - Alpinismo Industrial e Engenharia" class="hero-fullscreen-img">
-            <div class="hero-fullscreen-overlay"></div>
-        </div>
+    <main class="main-wrapper">
 
-        <!-- Mobile Quick CTA Bar (Visível apenas em Mobile) -->
-        <div class="hero-mobile-cta">
-            <div class="container">
-                <div class="hero-mobile-btn-group">
-                    <a href="https://wa.me/5551982124987?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20com%20a%20RVG%20Solu%C3%A7%C3%B5es." target="_blank" class="btn btn-gold btn-hero-mob">
-                        <i class="fa-brands fa-whatsapp"></i> Orçamento no WhatsApp
-                    </a>
-                    <a href="#servicos" class="btn btn-outline btn-hero-mob-sec">
-                        <i class="fa-solid fa-mountain-city"></i> Conhecer Serviços
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Stats Bar na base da imagem -->
-        <div class="hero-fullscreen-stats">
-            <div class="container">
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <span class="stat-number">10+ </span>
-                        <span class="stat-label">anos de excelência (Desde 2015)</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">100%</span>
-                        <span class="stat-label">Conformidade NR-35 &amp; NR-10</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">ZERO</span>
-                        <span class="stat-label">Acidentes de Trabalho</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">ART</span>
-                        <span class="stat-label">Documentação CREA Inclusa</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================================
-         TIMELINE & HISTÓRIA
-         ============================================================ -->
-    <section class="section timeline-section" id="historia">
-        <div class="container">
-            <div class="section-title text-center">
-                <span class="section-tag">Nossa Trajetória</span>
-                <h2>DE 2015 AO FUTURO DAS SOLUÇÕES INTEGRADAS</h2>
-                <div class="title-line"></div>
-            </div>
-
-            <div class="timeline-grid">
-                <!-- 2015 -->
-                <div class="timeline-card glass-card">
-                    <div class="timeline-year">2015</div>
-                    <div class="timeline-bullet"></div>
-                    <h3>Fundação em Porto Alegre</h3>
-                    <p>Fundação da RVG Vertical em Porto Alegre, estabelecendo-se como referência técnica em alpinismo industrial e acesso por cordas para intervenções de alta complexidade.</p>
+        <!-- ============================================================
+             HERO (vídeo animado)
+             ============================================================ -->
+        <section class="section_hero" id="hero" aria-label="Apresentação da RVG Soluções Integradas">
+            <div class="hero_component">
+                <!-- Vídeo inteiro (16:9), sem texto, botões ou camada escura por cima -->
+                <div class="hero_stage">
+                    <video class="hero_image is-video" id="hero-video" autoplay muted loop playsinline preload="auto" poster="assets/img/hero-poster.webp" width="1024" height="576" aria-hidden="true" tabindex="-1">
+                        <source src="assets/animacao-do-home.mp4" type="video/mp4">
+                    </video>
+                    <button type="button" class="hero_video-toggle" id="hero-video-toggle" aria-label="Pausar vídeo" aria-pressed="false" title="Pausar vídeo"><i class="fa-solid fa-pause"></i></button>
                 </div>
 
-                <!-- 2025 -->
-                <div class="timeline-card glass-card">
-                    <div class="timeline-year">2025</div>
-                    <div class="timeline-bullet"></div>
-                    <h3>Expansão de Soluções</h3>
-                    <p>Evoluímos para atender melhor cada realidade: de pequenas residências a grandes empresas. Seja qual for o tamanho do seu desafio, o cuidado, a técnica e a solução são sempre os mesmos – feitos sob medida para você.</p>
-                </div>
-
-                <!-- Hoje -->
-                <div class="timeline-card glass-card highlight-card">
-                    <div class="timeline-year today-badge">Hoje</div>
-                    <div class="timeline-bullet active-bullet"></div>
-                    <h3>Ecossistema Integrado</h3>
-                    <p>A RVG Soluções Integradas oferece um ecossistema completo que une engenharia de acesso por cordas, projetos elétricos, automação, luminotécnica e gestão condominial de alta tecnologia.</p>
-                </div>
-            </div>
-
-            <!-- Quote Banner -->
-            <div class="quote-banner glass-card">
-                <i class="fa-solid fa-quote-left quote-icon"></i>
-                <p class="quote-text">"Sua necessidade é nosso desafio"</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================================
-         VISÃO & MISSÃO (Logo após História)
-         ============================================================ -->
-    <section class="section vision-mission-section" id="visao-missao">
-        <div class="container">
-            <div class="section-title text-center">
-                <span class="section-tag">Nossos Valores</span>
-                <h2>VISÃO &amp; MISSÃO</h2>
-                <div class="title-line"></div>
-            </div>
-
-            <div class="vm-grid">
-                <!-- VISÃO -->
-                <div class="vm-block vision-block">
-                    <h2 class="vm-huge-title">VISÃO</h2>
-                    <div class="vm-card glass-card">
-                        <p class="vm-quote">"Ser a principal referência em soluções técnicas integradas, reconhecida pela capacidade de resolver desafios únicos em qualquer cenário, unindo inovação tecnológica e máxima segurança"</p>
-                    </div>
-                </div>
-
-                <!-- MISSÃO -->
-                <div class="vm-block mission-block">
-                    <h2 class="vm-huge-title">MISSÃO</h2>
-                    <div class="vm-card glass-card">
-                        <p class="vm-quote">"Entregar soluções integradas e personalizadas para seus clientes transformando desafios complexos em sistemas seguros e funcionais que garantam a máxima eficiência e total confiança em cada entrega."</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Badges de Conformidade Normativa -->
-            <div class="compliance-badges-bar">
-                <div class="badge-item">
-                    <i class="fa-solid fa-award"></i>
-                    <span><strong>NR-35 ANEXO 1</strong> acesso por cordas</span>
-                </div>
-                <div class="badge-item">
-                    <i class="fa-solid fa-plug-circle-check"></i>
-                    <span><strong>NR-10</strong> Segurança Elétrica</span>
-                </div>
-                <div class="badge-item">
-                    <i class="fa-solid fa-bolt"></i>
-                    <span><strong>NBR 5410</strong></span>
-                </div>
-                <div class="badge-item">
-                    <i class="fa-solid fa-stamp"></i>
-                    <span><strong>CREA / ART</strong> Laudos Oficiais</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================================
-         CATÁLOGO DE SERVIÇOS — 4 CATEGORIAS REESTRUTURADAS
-         ============================================================ -->
-    <section class="section services-section" id="servicos">
-        <div class="container">
-            <div class="section-title text-center">
-                <span class="section-tag">Soluções Completas</span>
-                <h2>NOSSOS SERVIÇOS</h2>
-                <p class="subtitle">Conheça nossas áreas de especialização para condomínios, indústrias, comércios e residências.</p>
-                <div class="title-line"></div>
-            </div>
-
-            <!-- Services Category Tabs Filter -->
-            <div class="services-filter">
-                <button class="filter-btn active" data-filter="all">Todos os Serviços</button>
-                <button class="filter-btn" data-filter="cordas">Acesso por Cordas</button>
-                <button class="filter-btn" data-filter="condominio">Gestão Condominial</button>
-                <button class="filter-btn" data-filter="projetos">Projetos &amp; Manutenção</button>
-                <button class="filter-btn" data-filter="automacao">Automação &amp; Luminotécnica</button>
-            </div>
-
-            <!-- Services Grid — 4 Cards -->
-            <div class="services-aligned-grid">
-                
-                <!-- ====== 1. ACESSO POR CORDAS ====== -->
-                <div class="service-card glass-card" data-category="cordas">
-                    <!-- Carrossel / Slider Interativo e Automático -->
-                    <div class="service-carousel" data-autoplay="true" data-interval="4000">
-                        <div class="carousel-track-container">
-                            <div class="carousel-track">
-                                <div class="carousel-slide">
-                                    <img src="assets/acesso_cordas_01.jpg" alt="Acesso por Cordas - Operação Técnica em Estrutura Metálica" class="carousel-img">
+                <div class="hero_stats">
+                    <div class="padding-global">
+                        <div class="container-large">
+                            <div class="hero_stats-list">
+                                <div class="hero_stats-item">
+                                    <span class="hero_stats-number">10+</span>
+                                    <span class="hero_stats-label">anos de excelência (Desde 2015)</span>
                                 </div>
-                                <div class="carousel-slide">
-                                    <img src="assets/acesso_cordas_02.jpg" alt="Acesso por Cordas - Vista Superior e Ancoragem em Altura" class="carousel-img">
+                                <div class="hero_stats-item">
+                                    <span class="hero_stats-number">100%</span>
+                                    <span class="hero_stats-label">Conformidade NR-35 &amp; NR-10</span>
                                 </div>
-                                <div class="carousel-slide">
-                                    <img src="assets/acesso_cordas_03.jpg" alt="Acesso por Cordas - Manutenção em Estrutura de Galpão Industrial" class="carousel-img">
+                                <div class="hero_stats-item">
+                                    <span class="hero_stats-number">ART</span>
+                                    <span class="hero_stats-label">Documentação CREA Inclusa</span>
                                 </div>
-                                <div class="carousel-slide">
-                                    <img src="assets/acesso_cordas_04.jpg" alt="Acesso por Cordas - Limpeza e Revitalização de Fachada Predial" class="carousel-img">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             HISTÓRIA (linha do tempo estática: horizontal no desktop, vertical no celular)
+             ============================================================ -->
+        <section class="section_timeline" id="historia">
+            <div class="padding-global">
+                <div class="container-large">
+                    <div class="padding-section-large">
+                        <div class="section-heading_component is-center">
+                            <div class="section-heading_label"><span class="section-heading_index">01</span> Nossa Trajetória</div>
+                            <h1 class="section-heading_title">De 2015 ao futuro das soluções integradas</h1>
+                        </div>
+
+                        <div class="timeline_list">
+                            <article class="timeline_item">
+                                <div class="timeline_card">
+                                    <div class="timeline_year">2015</div>
+                                    <div class="timeline_marker"></div>
+                                    <h3 class="timeline_title">Fundação em Porto Alegre</h3>
+                                    <p class="timeline_text">Fundação da RVG Vertical em Porto Alegre, estabelecendo-se como referência técnica em alpinismo industrial e acesso por cordas para intervenções de alta complexidade.</p>
+                                </div>
+                            </article>
+
+                            <article class="timeline_item">
+                                <div class="timeline_card">
+                                    <div class="timeline_year">2025</div>
+                                    <div class="timeline_marker"></div>
+                                    <h3 class="timeline_title">Expansão de Soluções</h3>
+                                    <p class="timeline_text">Evoluímos para atender melhor cada realidade: de pequenas residências a grandes empresas. Seja qual for o tamanho do seu desafio, o cuidado, a técnica e a solução são sempre os mesmos – feitos sob medida para você.</p>
+                                </div>
+                            </article>
+
+                            <article class="timeline_item is-today">
+                                <div class="timeline_card">
+                                    <div class="timeline_year is-today">Hoje</div>
+                                    <div class="timeline_marker is-active"></div>
+                                    <h3 class="timeline_title">Ecossistema Integrado</h3>
+                                    <p class="timeline_text">A RVG Soluções Integradas oferece um ecossistema completo que une engenharia de acesso por cordas, projetos elétricos, automação, luminotécnica e gestão condominial de alta tecnologia.</p>
+                                </div>
+                            </article>
+                        </div>
+
+                        <blockquote class="quote_component">
+                            <i class="fa-solid fa-quote-left quote_icon"></i>
+                            <p class="quote_text">"Sua necessidade é nosso desafio"</p>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             VISÃO & MISSÃO
+             ============================================================ -->
+        <section class="section_vision" id="visao-missao">
+            <div class="padding-global">
+                <div class="container-large">
+                    <div class="padding-section-large">
+                        <div class="section-heading_component is-center" data-reveal>
+                            <div class="section-heading_label"><span class="section-heading_index">02</span> Nossos Valores</div>
+                            <h2 class="section-heading_title">Visão &amp; Missão</h2>
+                        </div>
+
+                        <div class="vision_grid">
+                            <div class="vision_item" data-reveal>
+                                <h3 class="vision_huge-title">Visão</h3>
+                                <div class="vision_card">
+                                    <span class="vision_card-code">VSN—01</span>
+                                    <p class="vision_quote">"Ser a principal referência em soluções técnicas integradas, reconhecida pela capacidade de resolver desafios únicos em qualquer cenário, unindo inovação tecnológica e máxima segurança"</p>
+                                </div>
+                            </div>
+                            <div class="vision_item" data-reveal>
+                                <h3 class="vision_huge-title">Missão</h3>
+                                <div class="vision_card">
+                                    <span class="vision_card-code">MSN—02</span>
+                                    <p class="vision_quote">"Entregar soluções integradas e personalizadas para seus clientes transformando desafios complexos em sistemas seguros e funcionais que garantam a máxima eficiência e total confiança em cada entrega."</p>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Botões de Navegação Manual -->
-                        <button type="button" class="carousel-btn carousel-prev" aria-label="Foto Anterior">
-                            <i class="fa-solid fa-chevron-left"></i>
-                        </button>
-                        <button type="button" class="carousel-btn carousel-next" aria-label="Próxima Foto">
-                            <i class="fa-solid fa-chevron-right"></i>
-                        </button>
-
-                        <!-- Controles Superiores: Play/Pausa e Contador -->
-                        <div class="carousel-top-controls">
-                            <span class="carousel-counter">1 / 4</span>
-                            <button type="button" class="carousel-play-toggle" aria-label="Pausar / Iniciar rotação automática" title="Pausar / Iniciar rotação automática">
-                                <i class="fa-solid fa-pause"></i>
-                            </button>
-                        </div>
-
-                        <!-- Indicadores Dots Navegáveis -->
-                        <div class="carousel-dots-container"></div>
-                    </div>
-
-                    <div class="service-header">
-                        <div class="service-icon"><i class="fa-solid fa-person-falling-burst"></i></div>
-                        <span class="service-cat-badge">Acesso por Cordas</span>
-                    </div>
-                    <h3>Acesso por Cordas</h3>
-                    <p>Manutenção preventiva e corretiva em lugares de difícil acesso: torres de telecomunicações, áreas industriais, comerciais e condomínios residenciais.</p>
-                    <ul class="service-list">
-                        <li><i class="fa-solid fa-angle-right"></i> <strong>Linhas de Vida</strong>: Projetos e execução de linhas de vida fixa e móveis.</li>
-                        <li><i class="fa-solid fa-angle-right"></i> <strong>Iluminação em Fachadas</strong>: Projeto e execução — soluções estéticas e funcionais para valorização do seu patrimônio.</li>
-                        <li><i class="fa-solid fa-angle-right"></i> <strong>Inspeções Técnicas</strong>: Ensaios não destrutivos.</li>
-                        <li><i class="fa-solid fa-angle-right"></i> <strong>Resgate</strong>: Serviços de resgate em espaço confinado e trabalhos em altura e paradas de manutenção.</li>
-                        <li><i class="fa-solid fa-angle-right"></i> <strong>Revitalização de Fachadas</strong>: Limpeza, pintura e recuperação.</li>
-                        <li><i class="fa-solid fa-angle-right"></i> <strong>Trabalhos Técnicos</strong>: Eletricidade, mecânica, solda e caldeiraria em lugares de difícil acesso.</li>
-                        <li><i class="fa-solid fa-angle-right"></i> <strong>Cursos e Treinamentos</strong>: Trabalhos em altura, resgate em altura e espaço confinado conforme NR's vigentes.</li>
-                    </ul>
-                    <a href="https://wa.me/5551982124987?text=Gostaria%20de%20saber%20mais%20sobre%20Acesso%20por%20Cordas." target="_blank" class="service-link">
-                        Solicitar Acesso por Cordas <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-                </div>
-
-                <!-- ====== 2. GESTÃO CONDOMINIAL ====== -->
-                <div class="service-card glass-card" data-category="condominio">
-                    <div class="service-image-container">
-                        <img src="assets/servico_gestao_condominial.jpg" alt="Gestão Condominial" class="service-card-img">
-                    </div>
-
-                    <div class="service-header">
-                        <div class="service-icon"><i class="fa-solid fa-building-user"></i></div>
-                        <span class="service-cat-badge">Condomínios</span>
-                    </div>
-                    <h3>Gestão Condominial</h3>
-                    <p>Oferecemos gestão completa de infraestrutura para seu condomínio, permitindo que a administração foque em suas prioridades.</p>
-                    <ul class="service-list">
-                        <li><i class="fa-solid fa-angle-right"></i> <strong>Manutenções Preventivas e Corretivas</strong>: Programas periódicos de manutenção.</li>
-                        <li><i class="fa-solid fa-angle-right"></i> <strong>Manutenções e Adequações Elétricas</strong>: Infraestrutura elétrica completa.</li>
-                        <li><i class="fa-solid fa-angle-right"></i> <strong>Segurança e Automação</strong>: Sistemas de CFTV, controle de acesso, caixa d'água inteligente.</li>
-                        <li><i class="fa-solid fa-angle-right"></i> <strong>Manutenção de Fachadas</strong>: Conservação e revitalização.</li>
-                        <li><i class="fa-solid fa-angle-right"></i> <strong>Laudos</strong>: Elétricos e estruturais.</li>
-                    </ul>
-                    <a href="https://wa.me/5551982124987?text=Gostaria%20de%20saber%20mais%20sobre%20Gest%C3%A3o%20Condominial." target="_blank" class="service-link">
-                        Solicitar para meu Condomínio <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-                </div>
-
-                <!-- ====== 3. PROJETOS E MANUTENÇÃO ====== -->
-                <div class="service-card glass-card" data-category="projetos">
-                    <!-- Carrossel / Slider Interativo e Automático (6 Imagens) -->
-                    <div class="service-carousel" data-autoplay="true" data-interval="4000">
-                        <div class="carousel-track-container">
-                            <div class="carousel-track">
-                                <div class="carousel-slide">
-                                    <img src="assets/projetos_manutencao_01.jpg" alt="Montagem de Quadro de Distribuição Elétrica com Barramento e Disjuntores" class="carousel-img">
-                                </div>
-                                <div class="carousel-slide">
-                                    <img src="assets/projetos_manutencao_02.jpg" alt="Estruturação e Conexão de Barramento em Cobre e Disjuntor Geral" class="carousel-img">
-                                </div>
-                                <div class="carousel-slide">
-                                    <img src="assets/projetos_manutencao_03.jpg" alt="Quadro de Comando com Disjuntores Steck e Contatora Industrial WEG" class="carousel-img">
-                                </div>
-                                <div class="carousel-slide">
-                                    <img src="assets/projetos_manutencao_04.jpg" alt="Painel de Comando e Automação com Temporizador Digital Integrado" class="carousel-img">
-                                </div>
-                                <div class="carousel-slide">
-                                    <img src="assets/projetos_manutencao_05.jpg" alt="Instalação e Manutenção de Contatoras Industriais e Botoeira" class="carousel-img">
-                                </div>
-                                <div class="carousel-slide">
-                                    <img src="assets/projetos_manutencao_06.jpg" alt="Padrão de Entrada e Disjuntor em Caixa Moldada com Barramento" class="carousel-img">
-                                </div>
+                        <div class="compliance_list" data-reveal>
+                            <div class="compliance_item">
+                                <i class="fa-solid fa-award"></i>
+                                <span><strong>NR-35 ANEXO 1</strong> acesso por cordas</span>
                             </div>
-                        </div>
-
-                        <!-- Botões de Navegação Manual -->
-                        <button type="button" class="carousel-btn carousel-prev" aria-label="Foto Anterior">
-                            <i class="fa-solid fa-chevron-left"></i>
-                        </button>
-                        <button type="button" class="carousel-btn carousel-next" aria-label="Próxima Foto">
-                            <i class="fa-solid fa-chevron-right"></i>
-                        </button>
-
-                        <!-- Controles Superiores: Play/Pausa e Contador -->
-                        <div class="carousel-top-controls">
-                            <span class="carousel-counter">1 / 6</span>
-                            <button type="button" class="carousel-play-toggle" aria-label="Pausar / Iniciar rotação automática" title="Pausar / Iniciar rotação automática">
-                                <i class="fa-solid fa-pause"></i>
-                            </button>
-                        </div>
-
-                        <!-- Indicadores Dots Navegáveis -->
-                        <div class="carousel-dots-container"></div>
-                    </div>
-
-                    <div class="service-header">
-                        <div class="service-icon"><i class="fa-solid fa-bolt-lightning"></i></div>
-                        <span class="service-cat-badge">Projetos &amp; Manutenção</span>
-                    </div>
-                    <h3>Projetos e Manutenção</h3>
-                    <p>Desenvolvemos e executamos qualquer tipo de projeto elétrico, dos mais simples aos mais complexos, de acordo com a sua necessidade.</p>
-                    <ul class="service-list">
-                        <li><i class="fa-solid fa-angle-right"></i> <strong>Elétricas Prediais e Industriais</strong>: Baixa e média tensão — projeto, execução, adequação e manutenção.</li>
-                        <li><i class="fa-solid fa-angle-right"></i> <strong>Padrão de Entrada</strong>: Projeto, execução, adequação e manutenção.</li>
-                        <li><i class="fa-solid fa-angle-right"></i> <strong>Automação Residencial e Industrial</strong>: Projeto, execução, adequação e manutenção.</li>
-                        <li><i class="fa-solid fa-angle-right"></i> <strong>SPDA (Para-raios)</strong>: Projeto, execução, adequação e manutenção.</li>
-                        <li><i class="fa-solid fa-angle-right"></i> <strong>Redes de Computadores</strong>: Projeto, execução, adequação e manutenção.</li>
-                        <li><i class="fa-solid fa-angle-right"></i> <strong>Luminotécnicos Inteligentes</strong>: Ambientes internos e externos.</li>
-                        <li><i class="fa-solid fa-angle-right"></i> <strong>Projeto CFTV</strong>: Sistemas de videomonitoramento.</li>
-                        <li><i class="fa-solid fa-angle-right"></i> <strong>Cabeamento Estruturado</strong>: Redes de comunicação de alta performance.</li>
-                        <li><i class="fa-solid fa-angle-right"></i> <strong>Sistemas Elétricos de Potência</strong>: Manutenção especializada.</li>
-                        <li><i class="fa-solid fa-angle-right"></i> <strong>Laudos e Documentações</strong>: ART, laudos técnicos oficiais.</li>
-                        <li><i class="fa-solid fa-angle-right"></i> <strong>Contratos de Manutenção</strong>: Preventiva e corretiva.</li>
-                    </ul>
-                    <a href="https://wa.me/5551982124987?text=Gostaria%20de%20saber%20mais%20sobre%20Projetos%20e%20Manuten%C3%A7%C3%A3o." target="_blank" class="service-link">
-                        Solicitar Projeto <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-                </div>
-
-                <!-- ====== 4. AUTOMAÇÃO E LUMINOTÉCNICA ====== -->
-                <div class="service-card glass-card" data-category="automacao">
-                    <!-- Carrossel / Slider Interativo e Automático (2 Espaços) -->
-                    <div class="service-carousel" data-autoplay="true" data-interval="4000">
-                        <div class="carousel-track-container">
-                            <div class="carousel-track">
-                                <div class="carousel-slide">
-                                    <img src="assets/servico_automacao_luminotecnica.jpg" alt="Automação e Luminotécnica Integrada" class="carousel-img">
-                                </div>
-                                <div class="carousel-slide">
-                                    <img src="assets/luminotecnico_fachada_noturna.jpg" alt="Projeto Luminotécnico - Iluminação Cênica em Fachada Noturna" class="carousel-img">
-                                </div>
+                            <div class="compliance_item">
+                                <i class="fa-solid fa-plug-circle-check"></i>
+                                <span><strong>NR-10</strong> Segurança Elétrica</span>
                             </div>
-                        </div>
-
-                        <!-- Botões de Navegação Manual -->
-                        <button type="button" class="carousel-btn carousel-prev" aria-label="Foto Anterior">
-                            <i class="fa-solid fa-chevron-left"></i>
-                        </button>
-                        <button type="button" class="carousel-btn carousel-next" aria-label="Próxima Foto">
-                            <i class="fa-solid fa-chevron-right"></i>
-                        </button>
-
-                        <!-- Controles Superiores: Play/Pausa e Contador -->
-                        <div class="carousel-top-controls">
-                            <span class="carousel-counter">1 / 2</span>
-                            <button type="button" class="carousel-play-toggle" aria-label="Pausar / Iniciar rotação automática" title="Pausar / Iniciar rotação automática">
-                                <i class="fa-solid fa-pause"></i>
-                            </button>
-                        </div>
-
-                        <!-- Indicadores Dots Navegáveis -->
-                        <div class="carousel-dots-container"></div>
-                    </div>
-
-                    <div class="service-header">
-                        <div class="service-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
-                        <span class="service-cat-badge">Automação &amp; Luminotécnica</span>
-                    </div>
-                    <h3>Automação e Luminotécnica</h3>
-                    <p>Automação inteligente de ambientes residenciais, industriais e prediais com design luminotécnico de alto impacto.</p>
-                    <ul class="service-list">
-                        <li><i class="fa-solid fa-angle-right"></i> <strong>Iluminação Arquitetural</strong>: Design luminotécnico inteligente integrado interno/externo, valorizando seu negócio ou empreendimento.</li>
-                        <li><i class="fa-solid fa-angle-right"></i> <strong>Eficiência Energética e Retrofit</strong>: Redução de consumo e modernização.</li>
-                        <li><i class="fa-solid fa-angle-right"></i> <strong>Ambientes Corporativos</strong>: Automação e luminotécnica em escritórios e ambientes corporativos.</li>
-                        <li><i class="fa-solid fa-angle-right"></i> <strong>Redes DMX512</strong>: Projetos com protocolo DMX para iluminação cênica.</li>
-                        <li><i class="fa-solid fa-angle-right"></i> <strong>Painéis Cênicos e Letreiros Luminosos</strong>: Projetos personalizados.</li>
-                        <li><i class="fa-solid fa-angle-right"></i> <strong>Contratos de Manutenção</strong>: Preventiva e corretiva.</li>
-                    </ul>
-                    <a href="https://wa.me/5551982124987?text=Gostaria%20de%20saber%20mais%20sobre%20Automa%C3%A7%C3%A3o%20e%20Luminot%C3%A9cnica." target="_blank" class="service-link">
-                        Projeto de Automação <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================================
-         DIMENSIONAMENTO & PROPOSTA TÉCNICA
-         ============================================================ -->
-    <section class="section simulator-section" id="proposta-tecnica">
-        <div class="container">
-            <div class="simulator-wrapper glass-card">
-                <div class="sim-header text-center">
-                    <span class="section-tag"><i class="fa-solid fa-file-signature"></i> Dimensionamento de Projetos</span>
-                    <h2>SOLICITAÇÃO DE PROPOSTA TÉCNICA</h2>
-                    <p>Selecione a tipologia do seu empreendimento e as soluções necessárias para gerar um dimensionamento preliminar com atendimento prioritário.</p>
-                </div>
-
-                <div class="sim-body">
-                    <!-- Step 1: Select Property Type -->
-                    <div class="sim-step">
-                        <label class="sim-step-label"><span class="step-num">1</span> Qual é o tipo do seu imóvel / empreendimento?</label>
-                        <div class="sim-options-grid" id="property-type-group">
-                            <button class="sim-option-btn active" data-type="Condomínio Residencial">
-                                <i class="fa-solid fa-building"></i>
-                                <span>Condomínio Residencial</span>
-                            </button>
-                            <button class="sim-option-btn" data-type="Edifício Comercial">
-                                <i class="fa-solid fa-city"></i>
-                                <span>Edifício Comercial</span>
-                            </button>
-                            <button class="sim-option-btn" data-type="Indústria / Galpão">
-                                <i class="fa-solid fa-industry"></i>
-                                <span>Indústria / Galpão</span>
-                            </button>
-                            <button class="sim-option-btn" data-type="Residência Particular">
-                                <i class="fa-solid fa-house-chimney"></i>
-                                <span>Residência Particular</span>
-                            </button>
-                            <button class="sim-option-btn" data-type="Torres de Telecomunicações">
-                                <i class="fa-solid fa-tower-cell"></i>
-                                <span>Torres de Telecomunicações</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Step 2: Select Services -->
-                    <div class="sim-step">
-                        <label class="sim-step-label"><span class="step-num">2</span> Quais soluções sua estrutura necessita? (Selecione 1 ou mais)</label>
-                        <div class="sim-checkbox-grid">
-                            <label class="sim-check-card">
-                                <input type="checkbox" value="Acesso por Cordas (Alpinismo Industrial)" checked>
-                                <span class="check-box"></span>
-                                <span class="check-title"><i class="fa-solid fa-person-falling-burst"></i> Acesso por Cordas</span>
-                            </label>
-
-                            <label class="sim-check-card">
-                                <input type="checkbox" value="Gestão de Infraestrutura Condominial">
-                                <span class="check-box"></span>
-                                <span class="check-title"><i class="fa-solid fa-building-circle-check"></i> Gestão Condominial</span>
-                            </label>
-
-                            <label class="sim-check-card">
-                                <input type="checkbox" value="Projetos e Manutenção Elétrica">
-                                <span class="check-box"></span>
-                                <span class="check-title"><i class="fa-solid fa-bolt-lightning"></i> Projetos e Manutenção</span>
-                            </label>
-
-                            <label class="sim-check-card">
-                                <input type="checkbox" value="Automação e Luminotécnica">
-                                <span class="check-box"></span>
-                                <span class="check-title"><i class="fa-solid fa-wand-magic-sparkles"></i> Automação e Luminotécnica</span>
-                            </label>
-
-                            <label class="sim-check-card">
-                                <input type="checkbox" value="Laudos Técnicos / SPDA / ART">
-                                <span class="check-box"></span>
-                                <span class="check-title"><i class="fa-solid fa-file-shield"></i> Laudos, SPDA e ART</span>
-                            </label>
-
-                            <label class="sim-check-card">
-                                <input type="checkbox" value="Redes de Computadores / Cabeamento Estruturado / Fibra">
-                                <span class="check-box"></span>
-                                <span class="check-title"><i class="fa-solid fa-network-wired"></i> Redes e Cabeamento</span>
-                            </label>
-
-                            <label class="sim-check-card">
-                                <input type="checkbox" value="Cursos e Treinamentos (NR-35, Resgate em Altura)">
-                                <span class="check-box"></span>
-                                <span class="check-title"><i class="fa-solid fa-graduation-cap"></i> Cursos e Treinamentos</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- Result Box com Opções de Envio WhatsApp e Email -->
-                    <div class="sim-result-box">
-                        <div class="result-info">
-                            <h4><i class="fa-solid fa-circle-info"></i> Resumo da Solicitação:</h4>
-                            <p id="sim-summary-text">Imóvel: <strong>Condomínio Residencial</strong> | Soluções: <strong>Acesso por Cordas (Alpinismo Industrial)</strong></p>
-                        </div>
-                        <div class="sim-action-buttons">
-                            <button class="btn btn-gold" id="btn-send-sim-wa">
-                                <i class="fa-brands fa-whatsapp"></i> Enviar por WhatsApp
-                            </button>
-                            <button class="btn btn-outline" id="btn-send-sim-mail">
-                                <i class="fa-solid fa-envelope"></i> Enviar por E-mail
-                            </button>
+                            <div class="compliance_item">
+                                <i class="fa-solid fa-bolt"></i>
+                                <span><strong>NBR 5410</strong> Instalações Elétricas</span>
+                            </div>
+                            <div class="compliance_item">
+                                <i class="fa-solid fa-stamp"></i>
+                                <span><strong>CREA / ART</strong> Laudos Oficiais</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ============================================================
-         CARTÃO DE CONTATO E CONTATO DIRETO
-         ============================================================ -->
-    <section class="section contact-section" id="contato">
-        <div class="container">
-            <div class="section-title text-center">
-                <span class="section-tag">Fale Conosco</span>
-                <h2>ENTRE EM CONTATO</h2>
-                <div class="title-line"></div>
+        <!-- ============================================================
+             SERVIÇOS — efeito "power up": o fundo escurece, o conduíte acende
+             e os blocos são energizados em sequência conforme a rolagem
+             ============================================================ -->
+        <section class="section_power" id="servicos">
+            <div class="power_background" aria-hidden="true">
+                <img src="assets/img/power-bg.webp" alt="" class="power_background-image" width="1376" height="768" loading="lazy" decoding="async" fetchpriority="low">
             </div>
+            <svg class="power_circuit" aria-hidden="true" focusable="false">
+                <defs>
+                    <filter id="power-neon" x="-50%" y="-50%" width="200%" height="200%">
+                        <feGaussianBlur stdDeviation="4" />
+                    </filter>
+                </defs>
+                <g class="power_circuit-base"></g>
+                <g class="power_circuit-glow"></g>
+                <g class="power_circuit-core"></g>
+                <g class="power_circuit-flow"></g>
+                <g class="power_circuit-nodes"></g>
+                <circle class="power_spark" r="4" cx="-20" cy="-20" />
+            </svg>
 
-            <div class="contact-grid">
-                
-                <!-- Bloco de Canais de Atendimento -->
-                <div class="contact-info-wrapper glass-card">
-                    <div class="contact-info-header">
-                        <span class="contact-info-tag">Atendimento Direto</span>
-                        <h3>Canais de Comunicação</h3>
-                        <p class="contact-info-desc">Fale diretamente com nossa equipe técnica para orçamentos, vistorias ou suporte operacional.</p>
-                    </div>
+            <div class="padding-global">
+                <div class="container-large">
+                    <div class="padding-section-large">
+                        <div class="power_header">
+                            <div class="section-heading_component is-center">
+                                <div class="section-heading_label"><span class="section-heading_index">03</span> Soluções Completas</div>
+                                <h2 class="section-heading_title power_heading">Nossos Serviços</h2>
+                                <p class="section-heading_subtitle">Conheça nossas áreas de especialização para condomínios, indústrias, comércios e residências.</p>
+                            </div>
+                            <div class="power_status" aria-hidden="true">
+                                <span class="power_status-dot"></span>
+                                <span class="power_status-text">SISTEMA DESENERGIZADO</span>
+                            </div>
+                        </div>
 
-                    <div class="contact-channels-list">
-                        <!-- WhatsApp & Telefone -->
-                        <a href="https://wa.me/5551982124987?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20atendimento%20t%C3%A9cnico%20da%20RVG." target="_blank" class="channel-card">
-                            <div class="channel-icon wa">
-                                <i class="fa-brands fa-whatsapp"></i>
-                            </div>
-                            <div class="channel-content">
-                                <span class="channel-title">WhatsApp &amp; Telefone</span>
-                                <span class="channel-value">(51) 9 8212-4987</span>
-                            </div>
-                            <i class="fa-solid fa-arrow-up-right-from-square channel-arrow"></i>
-                        </a>
+                        <!-- Filtro de categorias -->
+                        <div class="services_filter" role="group" aria-label="Filtrar serviços">
+                            <button class="services_filter-button is-active" data-filter="all">Todos os Serviços</button>
+                            <button class="services_filter-button" data-filter="cordas">Acesso por Cordas</button>
+                            <button class="services_filter-button" data-filter="condominio">Gestão Condominial</button>
+                            <button class="services_filter-button" data-filter="projetos">Projetos e Manutenção</button>
+                            <button class="services_filter-button" data-filter="automacao">Automação e Luminotécnica</button>
+                        </div>
 
-                        <!-- E-mail Corporativo -->
-                        <a href="mailto:rvg.solucoes.integradas@gmail.com?subject=Contato%20via%20Site%20RVG" class="channel-card">
-                            <div class="channel-icon mail">
-                                <i class="fa-solid fa-envelope"></i>
-                            </div>
-                            <div class="channel-content">
-                                <span class="channel-title">E-mail Corporativo</span>
-                                <span class="channel-value">rvg.solucoes.integradas@gmail.com</span>
-                            </div>
-                            <i class="fa-solid fa-arrow-up-right-from-square channel-arrow"></i>
-                        </a>
+                        <div class="services_list">
 
-                        <!-- Instagram -->
-                        <a href="https://instagram.com/rvg.solucoes" target="_blank" class="channel-card">
-                            <div class="channel-icon insta">
-                                <i class="fa-brands fa-instagram"></i>
-                            </div>
-                            <div class="channel-content">
-                                <span class="channel-title">Instagram Oficial</span>
-                                <span class="channel-value">@rvg.solucoes</span>
-                            </div>
-                            <i class="fa-solid fa-arrow-up-right-from-square channel-arrow"></i>
-                        </a>
+                            <!-- 1. ACESSO POR CORDAS -->
+                            <article class="services_item" data-category="cordas">
+                                <div class="carousel_component" data-autoplay="true" data-interval="4000" role="group" aria-roledescription="carrossel" aria-label="Fotos de Acesso por Cordas">
+                                    <div class="carousel_mask">
+                                        <div class="carousel_track">
+                                            <div class="carousel_slide"><picture><source type="image/webp" srcset="assets/img/servico_acesso_cordas-640.webp 640w, assets/img/servico_acesso_cordas-1200.webp 1200w" sizes="(min-width: 1360px) 560px, (min-width: 992px) calc((100vw - 160px) / 2), calc(100vw - 72px)"><img src="assets/result_servico_acesso_cordas.jpg" alt="Profissional em acesso por cordas na fachada de um edifício, com praia ao fundo" class="carousel_image" width="1200" height="628" loading="lazy" decoding="async"></picture></div>
+                                            <div class="carousel_slide"><picture><source type="image/webp" srcset="assets/img/acesso_cordas_02-640.webp 640w, assets/img/acesso_cordas_02-1200.webp 1200w" sizes="(min-width: 1360px) 560px, (min-width: 992px) calc((100vw - 160px) / 2), calc(100vw - 72px)"><img src="assets/result_acesso_cordas_02.jpg" alt="Acesso por Cordas - Vista Superior e Ancoragem em Altura" class="carousel_image" width="1198" height="628" loading="lazy" decoding="async"></picture></div>
+                                            <div class="carousel_slide"><picture><source type="image/webp" srcset="assets/img/acesso_cordas_03-640.webp 640w, assets/img/acesso_cordas_03-1200.webp 1200w" sizes="(min-width: 1360px) 560px, (min-width: 992px) calc((100vw - 160px) / 2), calc(100vw - 72px)"><img src="assets/result_acesso_cordas_03.jpg" alt="Acesso por Cordas - Manutenção em Estrutura de Galpão Industrial" class="carousel_image" width="1200" height="628" loading="lazy" decoding="async"></picture></div>
+                                            <div class="carousel_slide"><picture><source type="image/webp" srcset="assets/img/acesso_cordas_04-640.webp 640w, assets/img/acesso_cordas_04-1200.webp 1200w" sizes="(min-width: 1360px) 560px, (min-width: 992px) calc((100vw - 160px) / 2), calc(100vw - 72px)"><img src="assets/result_acesso_cordas_04.jpg" alt="Acesso por Cordas - Limpeza e Revitalização de Fachada Predial" class="carousel_image" width="1198" height="628" loading="lazy" decoding="async"></picture></div>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="carousel_button is-prev" aria-label="Foto Anterior"><i class="fa-solid fa-chevron-left"></i></button>
+                                    <button type="button" class="carousel_button is-next" aria-label="Próxima Foto"><i class="fa-solid fa-chevron-right"></i></button>
+                                    <div class="carousel_controls">
+                                        <span class="carousel_counter">1 / 4</span>
+                                        <button type="button" class="carousel_play-toggle" aria-label="Pausar rotação automática" title="Pausar rotação automática"><i class="fa-solid fa-pause"></i></button>
+                                    </div>
+                                    <div class="carousel_dots"></div>
+                                </div>
+                                <div class="services_body">
+                                    <div class="services_meta">
+                                        <div class="services_icon"><i class="fa-solid fa-person-falling-burst"></i></div>
+                                        <span class="services_tag">NR-35 · Acesso por Cordas</span>
+                                    </div>
+                                    <h3 class="services_title">Acesso por Cordas</h3>
+                                    <p class="services_text">Manutenção preventiva e corretiva em lugares de difícil acesso: torres de telecomunicações, áreas industriais, comerciais e condomínios residenciais.</p>
+                                    <ul class="services_feature-list">
+                                        <li class="services_feature-item"><strong>Linhas de Vida</strong>: Projetos e execução de linhas de vida fixa e móveis.</li>
+                                        <li class="services_feature-item"><strong>Iluminação em Fachadas</strong>: Projeto e execução — soluções estéticas e funcionais para valorização do seu patrimônio.</li>
+                                        <li class="services_feature-item"><strong>Inspeções Técnicas</strong>: Ensaios não destrutivos.</li>
+                                        <li class="services_feature-item"><strong>Resgate</strong>: Serviços de resgate em espaço confinado e trabalhos em altura e paradas de manutenção.</li>
+                                        <li class="services_feature-item"><strong>Revitalização de Fachadas</strong>: Limpeza, pintura e recuperação.</li>
+                                        <li class="services_feature-item"><strong>Trabalhos Técnicos</strong>: Eletricidade, mecânica, solda e caldeiraria em lugares de difícil acesso.</li>
+                                        <li class="services_feature-item"><strong>Cursos e Treinamentos</strong>: Trabalhos em altura, resgate em altura e espaço confinado conforme NR's vigentes.</li>
+                                    </ul>
+                                    <div class="services_actions">
+                                        <a href="https://wa.me/5551982124987?text=Gostaria%20de%20saber%20mais%20sobre%20Acesso%20por%20Cordas." target="_blank" rel="noopener" class="services_link"> Solicitar Acesso por Cordas <i class="fa-solid fa-arrow-right"></i> </a>
+                                        <a href="servicos/acesso-por-cordas/" class="services_link is-secondary" aria-label="Saiba mais sobre Acesso por Cordas">Saiba mais <i class="fa-solid fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </article>
 
-                        <!-- Localização e Atendimento -->
-                        <div class="channel-card static-channel">
-                            <div class="channel-icon loc">
-                                <i class="fa-solid fa-location-dot"></i>
-                            </div>
-                            <div class="channel-content">
-                                <span class="channel-title">Região de Atuação</span>
-                                <span class="channel-value">Porto Alegre</span>
-                            </div>
+                            <!-- 2. GESTÃO CONDOMINIAL -->
+                            <article class="services_item" data-category="condominio">
+                                <!-- Uma única imagem: apresentação estática (sem setas, contador, pontos, troca automática ou gestos) -->
+                                <div class="carousel_component is-static" data-autoplay="false">
+                                    <div class="carousel_mask">
+                                        <div class="carousel_track">
+                                            <div class="carousel_slide"><picture><source type="image/webp" srcset="assets/img/servico_gestao_condominial-640.webp 640w, assets/img/servico_gestao_condominial-1200.webp 1200w" sizes="(min-width: 1360px) 560px, (min-width: 992px) calc((100vw - 160px) / 2), calc(100vw - 72px)"><img src="assets/result_servico_gestao_condominial.jpg" alt="Profissional da RVG em acesso por cordas executando serviço em uma edificação" class="carousel_image" width="1200" height="628" loading="lazy" decoding="async"></picture></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="services_body">
+                                    <div class="services_meta">
+                                        <div class="services_icon"><i class="fa-solid fa-building-user"></i></div>
+                                        <span class="services_tag">Condomínios</span>
+                                    </div>
+                                    <h3 class="services_title">Gestão Condominial</h3>
+                                    <p class="services_text">Oferecemos gestão completa de infraestrutura para seu condomínio, permitindo que a administração foque em suas prioridades.</p>
+                                    <ul class="services_feature-list">
+                                        <li class="services_feature-item"><strong>Manutenções Preventivas e Corretivas</strong>: Programas periódicos de manutenção.</li>
+                                        <li class="services_feature-item"><strong>Manutenções e Adequações Elétricas</strong>: Infraestrutura elétrica completa.</li>
+                                        <li class="services_feature-item"><strong>Segurança e Automação</strong>: Sistemas de CFTV, controle de acesso, caixa d'água inteligente.</li>
+                                        <li class="services_feature-item"><strong>Manutenção de Fachadas</strong>: Conservação e revitalização.</li>
+                                        <li class="services_feature-item"><strong>Laudos</strong>: Elétricos e estruturais.</li>
+                                    </ul>
+                                    <div class="services_actions">
+                                        <a href="https://wa.me/5551982124987?text=Gostaria%20de%20saber%20mais%20sobre%20Gest%C3%A3o%20Condominial." target="_blank" rel="noopener" class="services_link"> Solicitar para meu Condomínio <i class="fa-solid fa-arrow-right"></i> </a>
+                                        <a href="servicos/gestao-condominial/" class="services_link is-secondary" aria-label="Saiba mais sobre Gestão Condominial">Saiba mais <i class="fa-solid fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- 3. PROJETOS E MANUTENÇÃO -->
+                            <article class="services_item" data-category="projetos">
+                                <div class="carousel_component" data-autoplay="true" data-interval="4000" role="group" aria-roledescription="carrossel" aria-label="Fotos de Projetos e Manutenção">
+                                    <div class="carousel_mask">
+                                        <div class="carousel_track">
+                                            <div class="carousel_slide"><picture><source type="image/webp" srcset="assets/img/projetos_manutencao_02-640.webp 640w, assets/img/projetos_manutencao_02-1200.webp 1200w" sizes="(min-width: 1360px) 560px, (min-width: 992px) calc((100vw - 160px) / 2), calc(100vw - 72px)"><img src="assets/result_projetos_manutencao_02.jpg" alt="Quadro de distribuição elétrica com disjuntores e barramento de cobre" class="carousel_image" width="1198" height="628" loading="lazy" decoding="async"></picture></div>
+                                            <div class="carousel_slide"><picture><source type="image/webp" srcset="assets/img/projetos_manutencao_03-640.webp 640w, assets/img/projetos_manutencao_03-1200.webp 1200w" sizes="(min-width: 1360px) 560px, (min-width: 992px) calc((100vw - 160px) / 2), calc(100vw - 72px)"><img src="assets/result_projetos_manutencao_03.jpg" alt="Disjuntores em trilho DIN com cabos conectados em quadro elétrico" class="carousel_image" width="1198" height="628" loading="lazy" decoding="async"></picture></div>
+                                            <div class="carousel_slide"><picture><source type="image/webp" srcset="assets/img/projetos_manutencao_05-640.webp 640w, assets/img/projetos_manutencao_05-1200.webp 1200w" sizes="(min-width: 1360px) 560px, (min-width: 992px) calc((100vw - 160px) / 2), calc(100vw - 72px)"><img src="assets/result_projetos_manutencao_05.jpeg" alt="Controlador programável (CLP) com fonte e fiação organizada em painel de automação" class="carousel_image" width="1199" height="628" loading="lazy" decoding="async"></picture></div>
+                                            <div class="carousel_slide"><picture><source type="image/webp" srcset="assets/img/projetos_manutencao_06-640.webp 640w, assets/img/projetos_manutencao_06-1200.webp 1200w" sizes="(min-width: 1360px) 560px, (min-width: 992px) calc((100vw - 160px) / 2), calc(100vw - 72px)"><img src="assets/result_projetos_manutencao_06.jpg" alt="Padrão de Entrada e Disjuntor em Caixa Moldada com Barramento" class="carousel_image" width="1198" height="628" loading="lazy" decoding="async"></picture></div>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="carousel_button is-prev" aria-label="Foto Anterior"><i class="fa-solid fa-chevron-left"></i></button>
+                                    <button type="button" class="carousel_button is-next" aria-label="Próxima Foto"><i class="fa-solid fa-chevron-right"></i></button>
+                                    <div class="carousel_controls">
+                                        <span class="carousel_counter">1 / 4</span>
+                                        <button type="button" class="carousel_play-toggle" aria-label="Pausar rotação automática" title="Pausar rotação automática"><i class="fa-solid fa-pause"></i></button>
+                                    </div>
+                                    <div class="carousel_dots"></div>
+                                </div>
+                                <div class="services_body">
+                                    <div class="services_meta">
+                                        <div class="services_icon"><i class="fa-solid fa-bolt-lightning"></i></div>
+                                        <span class="services_tag">NR-10 · Projetos e Manutenção</span>
+                                    </div>
+                                    <h3 class="services_title">Projetos e Manutenção</h3>
+                                    <p class="services_text">Desenvolvemos e executamos qualquer tipo de projeto elétrico, dos mais simples aos mais complexos, de acordo com a sua necessidade.</p>
+                                    <ul class="services_feature-list">
+                                        <li class="services_feature-item"><strong>Elétricas Prediais e Industriais</strong>: Baixa e média tensão — projeto, execução, adequação e manutenção.</li>
+                                        <li class="services_feature-item"><strong>Padrão de Entrada</strong>: Projeto, execução, adequação e manutenção.</li>
+                                        <li class="services_feature-item"><strong>Automação Residencial e Industrial</strong>: Projeto, execução, adequação e manutenção.</li>
+                                        <li class="services_feature-item"><strong>SPDA (Para-raios)</strong>: Projeto, execução, adequação e manutenção.</li>
+                                        <li class="services_feature-item"><strong>Redes de Computadores</strong>: Projeto, execução, adequação e manutenção.</li>
+                                        <li class="services_feature-item"><strong>Luminotécnicos Inteligentes</strong>: Ambientes internos e externos.</li>
+                                        <li class="services_feature-item"><strong>Projeto CFTV</strong>: Sistemas de videomonitoramento.</li>
+                                        <li class="services_feature-item"><strong>Cabeamento Estruturado</strong>: Redes de comunicação de alta performance.</li>
+                                        <li class="services_feature-item"><strong>Sistemas Elétricos de Potência</strong>: Manutenção especializada.</li>
+                                        <li class="services_feature-item"><strong>Laudos e Documentações</strong>: ART, laudos técnicos oficiais.</li>
+                                        <li class="services_feature-item"><strong>Contratos de Manutenção</strong>: Preventiva e corretiva.</li>
+                                    </ul>
+                                    <div class="services_actions">
+                                        <a href="https://wa.me/5551982124987?text=Gostaria%20de%20saber%20mais%20sobre%20Projetos%20e%20Manuten%C3%A7%C3%A3o." target="_blank" rel="noopener" class="services_link"> Solicitar Projeto <i class="fa-solid fa-arrow-right"></i> </a>
+                                        <a href="servicos/projetos-e-manutencao/" class="services_link is-secondary" aria-label="Saiba mais sobre Projetos e Manutenção">Saiba mais <i class="fa-solid fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- 4. AUTOMAÇÃO E LUMINOTÉCNICA -->
+                            <article class="services_item" data-category="automacao">
+                                <div class="carousel_component" data-autoplay="true" data-interval="4000" role="group" aria-roledescription="carrossel" aria-label="Fotos de Automação e Luminotécnica">
+                                    <div class="carousel_mask">
+                                        <div class="carousel_track">
+                                            <div class="carousel_slide"><picture><source type="image/webp" srcset="assets/img/servico_automacao_luminotecnica-640.webp 640w, assets/img/servico_automacao_luminotecnica-1200.webp 1200w" sizes="(min-width: 1360px) 560px, (min-width: 992px) calc((100vw - 160px) / 2), calc(100vw - 72px)"><img src="assets/result_servico_automacao_luminotecnica.jpg" alt="Iluminação cênica colorida na fachada de um edifício à noite" class="carousel_image" width="1199" height="628" loading="lazy" decoding="async"></picture></div>
+                                            <div class="carousel_slide"><picture><source type="image/webp" srcset="assets/img/luminotecnico_fachada_noturna-640.webp 640w, assets/img/luminotecnico_fachada_noturna-1200.webp 1200w" sizes="(min-width: 1360px) 560px, (min-width: 992px) calc((100vw - 160px) / 2), calc(100vw - 72px)"><img src="assets/result_luminotecnico_fachada_noturna.jpg" alt="Projeto Luminotécnico - Iluminação Cênica em Fachada Noturna" class="carousel_image" width="1200" height="628" loading="lazy" decoding="async"></picture></div>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="carousel_button is-prev" aria-label="Foto Anterior"><i class="fa-solid fa-chevron-left"></i></button>
+                                    <button type="button" class="carousel_button is-next" aria-label="Próxima Foto"><i class="fa-solid fa-chevron-right"></i></button>
+                                    <div class="carousel_controls">
+                                        <span class="carousel_counter">1 / 2</span>
+                                        <button type="button" class="carousel_play-toggle" aria-label="Pausar rotação automática" title="Pausar rotação automática"><i class="fa-solid fa-pause"></i></button>
+                                    </div>
+                                    <div class="carousel_dots"></div>
+                                </div>
+                                <div class="services_body">
+                                    <div class="services_meta">
+                                        <div class="services_icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                                        <span class="services_tag">Automação e Luminotécnica</span>
+                                    </div>
+                                    <h3 class="services_title">Automação e Luminotécnica</h3>
+                                    <p class="services_text">Automação inteligente de ambientes residenciais, industriais e prediais com design luminotécnico de alto impacto.</p>
+                                    <ul class="services_feature-list">
+                                        <li class="services_feature-item"><strong>Iluminação Arquitetural</strong>: Design luminotécnico inteligente integrado interno/externo, valorizando seu negócio ou empreendimento.</li>
+                                        <li class="services_feature-item"><strong>Eficiência Energética e Retrofit</strong>: Redução de consumo e modernização.</li>
+                                        <li class="services_feature-item"><strong>Ambientes Corporativos</strong>: Automação e luminotécnica em escritórios e ambientes corporativos.</li>
+                                        <li class="services_feature-item"><strong>Redes DMX512</strong>: Projetos com protocolo DMX para iluminação cênica.</li>
+                                        <li class="services_feature-item"><strong>Painéis Cênicos e Letreiros Luminosos</strong>: Projetos personalizados.</li>
+                                        <li class="services_feature-item"><strong>Contratos de Manutenção</strong>: Preventiva e corretiva.</li>
+                                    </ul>
+                                    <div class="services_actions">
+                                        <a href="https://wa.me/5551982124987?text=Gostaria%20de%20saber%20mais%20sobre%20Automa%C3%A7%C3%A3o%20e%20Luminot%C3%A9cnica." target="_blank" rel="noopener" class="services_link"> Projeto de Automação <i class="fa-solid fa-arrow-right"></i> </a>
+                                        <a href="servicos/automacao-e-luminotecnica/" class="services_link is-secondary" aria-label="Saiba mais sobre Automação e Luminotécnica">Saiba mais <i class="fa-solid fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </article>
+
                         </div>
                     </div>
                 </div>
-
-                <!-- Formulário de Mensagem -->
-                <div class="contact-form-wrapper glass-card">
-                    <h3><i class="fa-solid fa-paper-plane"></i> Envie uma Mensagem</h3>
-                    <form id="contact-form">
-                        <div class="form-group">
-                            <label for="name">Seu Nome / Razão Social *</label>
-                            <input type="text" id="name" required placeholder="Ex: João da Silva / Condomínio Sol Nascente">
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="phone">Telefone / WhatsApp *</label>
-                                <input type="tel" id="phone" required placeholder="(51) 99999-9999">
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Seu E-mail *</label>
-                                <input type="email" id="email" required placeholder="seuemail@dominio.com">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="service">Serviço de Interesse</label>
-                            <select id="service">
-                                <option value="Acesso por Cordas (Alpinismo Industrial)">Acesso por Cordas (Alpinismo Industrial)</option>
-                                <option value="Gestão Condominial">Gestão Condominial</option>
-                                <option value="Projetos e Manutenção Elétrica">Projetos e Manutenção Elétrica</option>
-                                <option value="Automação e Luminotécnica">Automação e Luminotécnica</option>
-                                <option value="Laudos Técnicos / SPDA / ART">Laudos Técnicos / SPDA / ART</option>
-                                <option value="Redes / Cabeamento / Fibra">Redes, Cabeamento Estruturado e Fibra</option>
-                                <option value="Cursos e Treinamentos">Cursos e Treinamentos (NR-35, Resgate)</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="message">Descrição do Desafio / Projeto</label>
-                            <textarea id="message" rows="4" placeholder="Descreva brevemente o que seu condomínio, empresa ou residência necessita..."></textarea>
-                        </div>
-
-                        <!-- Botões de Opção de Envio (WhatsApp ou E-mail) -->
-                        <div class="form-submit-buttons">
-                            <button type="submit" id="btn-submit-wa" class="btn btn-gold btn-lg flex-btn">
-                                <i class="fa-brands fa-whatsapp"></i> Enviar por WhatsApp
-                            </button>
-                            <button type="button" id="btn-submit-email" class="btn btn-outline btn-lg flex-btn">
-                                <i class="fa-solid fa-envelope"></i> Enviar por E-mail
-                            </button>
-                        </div>
-                    </form>
-                </div>
-
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ============================================================
-         FOOTER
-         ============================================================ -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col brand-col">
-                    <div class="brand-logo footer-logo">
-                        <img src="assets/official_logo_transparent.png" alt="RVG Soluções Integradas" class="footer-logo-img">
-                        <div class="brand-text">
-                            <span class="rvg-title">RVG</span>
-                            <span class="rvg-subtitle">SOLUÇÕES INTEGRADAS</span>
+        <!-- ============================================================
+             PROPOSTA TÉCNICA (solicitação de orçamento)
+             ============================================================ -->
+        <section class="section_proposal" id="proposta-tecnica">
+            <div class="padding-global">
+                <div class="container-large">
+                    <div class="padding-section-large">
+                        <div class="proposal_component" data-reveal>
+                            <div class="section-heading_component is-center">
+                                <div class="section-heading_label"><span class="section-heading_index">04</span> <i class="fa-solid fa-file-signature"></i> Solicite seu Orçamento</div>
+                                <h2 class="section-heading_title">Solicitação de Proposta Técnica</h2>
+                                <p class="section-heading_subtitle">Selecione a tipologia do seu empreendimento e as soluções necessárias para enviar uma solicitação de orçamento com atendimento prioritário.</p>
+                            </div>
+
+                            <div class="proposal_body">
+                                <div class="proposal_step">
+                                    <p class="proposal_step-label"><span class="proposal_step-number">1</span> Qual é o tipo do seu imóvel / empreendimento?</p>
+                                    <div class="proposal_option-grid" id="property-type-group">
+                                        <button class="proposal_option is-active" data-type="Condomínio Residencial" aria-pressed="true"><i class="fa-solid fa-building"></i><span>Condomínio Residencial</span></button>
+                                        <button class="proposal_option" data-type="Edifício Comercial" aria-pressed="false"><i class="fa-solid fa-city"></i><span>Edifício Comercial</span></button>
+                                        <button class="proposal_option" data-type="Indústria / Galpão" aria-pressed="false"><i class="fa-solid fa-industry"></i><span>Indústria / Galpão</span></button>
+                                        <button class="proposal_option" data-type="Residência Particular" aria-pressed="false"><i class="fa-solid fa-house-chimney"></i><span>Residência Particular</span></button>
+                                        <button class="proposal_option" data-type="Torres de Telecomunicações" aria-pressed="false"><i class="fa-solid fa-tower-cell"></i><span>Torres de Telecomunicações</span></button>
+                                    </div>
+                                </div>
+
+                                <div class="proposal_step">
+                                    <p class="proposal_step-label"><span class="proposal_step-number">2</span> Quais soluções sua estrutura necessita? (Selecione 1 ou mais)</p>
+                                    <div class="proposal_check-grid">
+                                        <label class="proposal_check"><input type="checkbox" value="Acesso por Cordas (Alpinismo Industrial)" checked><span class="proposal_check-box"></span><span class="proposal_check-title"><i class="fa-solid fa-person-falling-burst"></i> Acesso por Cordas</span></label>
+                                        <label class="proposal_check"><input type="checkbox" value="Gestão de Infraestrutura Condominial"><span class="proposal_check-box"></span><span class="proposal_check-title"><i class="fa-solid fa-building-circle-check"></i> Gestão Condominial</span></label>
+                                        <label class="proposal_check"><input type="checkbox" value="Projetos e Manutenção Elétrica"><span class="proposal_check-box"></span><span class="proposal_check-title"><i class="fa-solid fa-bolt-lightning"></i> Projetos e Manutenção</span></label>
+                                        <label class="proposal_check"><input type="checkbox" value="Automação e Luminotécnica"><span class="proposal_check-box"></span><span class="proposal_check-title"><i class="fa-solid fa-wand-magic-sparkles"></i> Automação e Luminotécnica</span></label>
+                                        <label class="proposal_check"><input type="checkbox" value="Laudos Técnicos / SPDA / ART"><span class="proposal_check-box"></span><span class="proposal_check-title"><i class="fa-solid fa-file-shield"></i> Laudos, SPDA e ART</span></label>
+                                        <label class="proposal_check"><input type="checkbox" value="Redes de Computadores / Cabeamento Estruturado / Fibra"><span class="proposal_check-box"></span><span class="proposal_check-title"><i class="fa-solid fa-network-wired"></i> Redes e Cabeamento</span></label>
+                                        <label class="proposal_check"><input type="checkbox" value="Cursos e Treinamentos (NR-35, Resgate em Altura)"><span class="proposal_check-box"></span><span class="proposal_check-title"><i class="fa-solid fa-graduation-cap"></i> Cursos e Treinamentos</span></label>
+                                    </div>
+                                </div>
+
+                                <div class="proposal_result">
+                                    <div class="proposal_result-info">
+                                        <h3 class="proposal_result-title"><i class="fa-solid fa-circle-info"></i> Resumo da Solicitação:</h3>
+                                        <p id="sim-summary-text" aria-live="polite">Imóvel: <strong>Condomínio Residencial</strong> | Soluções: <strong>Acesso por Cordas (Alpinismo Industrial)</strong></p>
+                                        <p class="proposal_result-error" id="sim-error" role="alert"></p>
+                                    </div>
+                                    <div class="proposal_result-actions">
+                                        <button class="button" id="btn-send-sim-wa"><i class="fa-brands fa-whatsapp"></i> Enviar por WhatsApp</button>
+                                        <button class="button is-secondary" id="btn-send-sim-mail"><i class="fa-solid fa-envelope"></i> Enviar por E-mail</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <p class="footer-desc">Especialistas em Acesso por Cordas, Projetos Elétricos, Automação, Luminotécnica e Gestão de Infraestrutura Condominial.</p>
-                    <p class="footer-slogan">"Sua necessidade é o nosso desafio."</p>
-                </div>
-
-                <div class="footer-col">
-                    <h4>Links Rápidos</h4>
-                    <ul>
-                        <li><a href="#hero">Início</a></li>
-                        <li><a href="#historia">História</a></li>
-                        <li><a href="#visao-missao">Visão e Missão</a></li>
-                        <li><a href="#servicos">Serviços</a></li>
-                        <li><a href="#proposta-tecnica">Proposta Técnica</a></li>
-                        <li><a href="#contato">Contato</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-col">
-                    <h4>Nossos Serviços</h4>
-                    <ul>
-                        <li><a href="#servicos">Acesso por Cordas</a></li>
-                        <li><a href="#servicos">Gestão Condominial</a></li>
-                        <li><a href="#servicos">Projetos e Manutenção</a></li>
-                        <li><a href="#servicos">Automação e Luminotécnica</a></li>
-                        <li><a href="#servicos">Redes e Cabeamento</a></li>
-                        <li><a href="#servicos">Laudos Técnicos com ART</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-col contact-col">
-                    <h4>Contato Direto</h4>
-                    <p><i class="fa-solid fa-headset"></i> Atendimento Especializado</p>
-                    <p><a href="https://wa.me/5551982124987" target="_blank" class="footer-wa-link"><i class="fa-brands fa-whatsapp"></i> (51) 9 8212 - 4987</a></p>
-                    <p><a href="mailto:rvg.solucoes.integradas@gmail.com"><i class="fa-solid fa-envelope"></i> rvg.solucoes.integradas@gmail.com</a></p>
-                    <p><a href="https://instagram.com/rvg.solucoes" target="_blank"><i class="fa-brands fa-instagram"></i> @rvg.solucoes</a></p>
                 </div>
             </div>
+        </section>
 
-            <div class="footer-bottom">
-                <p>&copy; 2026 RVG Soluções Integradas. Todos os direitos reservados. Porto Alegre.</p>
-                <p class="legal-text">Conformidade NR-35 ANEXO 1, NR-10, CREA-RS &amp; NBR 5410.</p>
+        <!-- ============================================================
+             CONTATO
+             ============================================================ -->
+        <section class="section_contact" id="contato">
+            <div class="padding-global">
+                <div class="container-large">
+                    <div class="padding-section-large">
+                        <div class="section-heading_component is-center" data-reveal>
+                            <div class="section-heading_label"><span class="section-heading_index">05</span> Fale Conosco</div>
+                            <h2 class="section-heading_title">Entre em Contato</h2>
+                        </div>
+
+                        <div class="contact_grid">
+                            <div class="contact_info" data-reveal>
+                                <div class="contact_info-header">
+                                    <span class="contact_info-tag">Atendimento Direto</span>
+                                    <h3 class="contact_info-title">Canais de Comunicação</h3>
+                                    <p class="contact_info-text">Fale diretamente com nossa equipe técnica para orçamentos, vistorias ou suporte operacional.</p>
+                                </div>
+                                <div class="contact_channel-list">
+                                    <a href="https://wa.me/5551982124987?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20atendimento%20t%C3%A9cnico%20da%20RVG." target="_blank" rel="noopener" class="contact_channel">
+                                        <div class="contact_channel-icon is-whatsapp"><i class="fa-brands fa-whatsapp"></i></div>
+                                        <div class="contact_channel-content"><span class="contact_channel-title">WhatsApp &amp; Telefone</span><span class="contact_channel-value">(51) 9 8212-4987</span></div>
+                                        <i class="fa-solid fa-arrow-up-right-from-square contact_channel-arrow"></i>
+                                    </a>
+                                    <a href="mailto:rafaelvidor@xn--rvgsoluesintegradas-cyb80a.com.br?subject=Contato%20via%20Site%20RVG" class="contact_channel">
+                                        <div class="contact_channel-icon is-mail"><i class="fa-solid fa-envelope"></i></div>
+                                        <div class="contact_channel-content"><span class="contact_channel-title">E-mail Corporativo</span><span class="contact_channel-value">rafaelvidor@rvgsoluçõesintegradas.com.br</span></div>
+                                        <i class="fa-solid fa-arrow-up-right-from-square contact_channel-arrow"></i>
+                                    </a>
+                                    <a href="https://instagram.com/rvg.solucoes" target="_blank" rel="noopener" class="contact_channel">
+                                        <div class="contact_channel-icon is-instagram"><i class="fa-brands fa-instagram"></i></div>
+                                        <div class="contact_channel-content"><span class="contact_channel-title">Instagram Oficial</span><span class="contact_channel-value">@rvg.solucoes</span></div>
+                                        <i class="fa-solid fa-arrow-up-right-from-square contact_channel-arrow"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="contact_form-wrapper" data-reveal>
+                                <h3 class="contact_form-title"><i class="fa-solid fa-paper-plane"></i> Envie uma Mensagem</h3>
+                                <form id="contact-form" class="contact_form">
+                                    <div class="form_field">
+                                        <label for="name" class="form_label">Seu Nome / Razão Social *</label>
+                                        <input type="text" id="name" class="form_input" required maxlength="120" placeholder="Ex: João da Silva / Condomínio Sol Nascente" autocomplete="name">
+                                    </div>
+                                    <div class="form_row">
+                                        <div class="form_field">
+                                            <label for="phone" class="form_label">Telefone / WhatsApp *</label>
+                                            <input type="tel" id="phone" class="form_input" required maxlength="30" placeholder="(51) 99999-9999" autocomplete="tel">
+                                        </div>
+                                        <div class="form_field">
+                                            <label for="email" class="form_label">Seu E-mail *</label>
+                                            <input type="email" id="email" class="form_input" required maxlength="120" placeholder="seuemail@dominio.com" autocomplete="email">
+                                        </div>
+                                    </div>
+                                    <div class="form_field">
+                                        <label for="service" class="form_label">Serviço de Interesse</label>
+                                        <select id="service" class="form_input is-select">
+                                            <option value="Acesso por Cordas (Alpinismo Industrial)">Acesso por Cordas (Alpinismo Industrial)</option>
+                                            <option value="Gestão Condominial">Gestão Condominial</option>
+                                            <option value="Projetos e Manutenção Elétrica">Projetos e Manutenção Elétrica</option>
+                                            <option value="Automação e Luminotécnica">Automação e Luminotécnica</option>
+                                            <option value="Laudos Técnicos / SPDA / ART">Laudos Técnicos / SPDA / ART</option>
+                                            <option value="Redes / Cabeamento / Fibra">Redes, Cabeamento Estruturado e Fibra</option>
+                                            <option value="Cursos e Treinamentos">Cursos e Treinamentos (NR-35, Resgate)</option>
+                                        </select>
+                                    </div>
+                                    <div class="form_field">
+                                        <label for="message" class="form_label">Descrição do Desafio / Projeto</label>
+                                        <textarea id="message" class="form_input is-textarea" rows="4" maxlength="1500" placeholder="Descreva brevemente o que seu condomínio, empresa ou residência necessita..."></textarea>
+                                    </div>
+                                    <div class="form_button-group">
+                                        <button type="submit" id="btn-submit-wa" class="button is-large"><i class="fa-brands fa-whatsapp"></i> Enviar por WhatsApp</button>
+                                        <button type="button" id="btn-submit-email" class="button is-secondary is-large"><i class="fa-solid fa-envelope"></i> Enviar por E-mail</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             LOCALIZAÇÃO (mapa)
+             ============================================================ -->
+        <section class="section_location" id="localizacao">
+            <div class="padding-global">
+                <div class="container-large">
+                    <div class="padding-section-medium">
+                        <div class="section-heading_component is-center" data-reveal>
+                            <div class="section-heading_label"><span class="section-heading_index">06</span> Localização</div>
+                            <h2 class="section-heading_title">Onde Estamos</h2>
+                            <p class="section-heading_subtitle">Estamos localizados no coração de Porto Alegre.</p>
+                        </div>
+
+                        <div class="location_component" data-reveal>
+                            <div class="location_map-wrapper">
+                                <iframe class="location_map"
+                                    src="https://maps.google.com/maps?q=Rua%20Riachuelo%2C%201612%2C%20Porto%20Alegre%20-%20RS&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
+                                    title="Mapa: RVG Soluções Integradas — Rua Riachuelo, 1612, Porto Alegre - RS"
+                                    loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade"
+                                    sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
+                                    allow="fullscreen"></iframe>
+                                <span class="location_corner is-tl" aria-hidden="true"></span>
+                                <span class="location_corner is-br" aria-hidden="true"></span>
+                            </div>
+
+                            <div class="location_info">
+                                <div class="location_address">
+                                    <div class="location_icon"><i class="fa-solid fa-location-dot"></i></div>
+                                    <div class="location_address-content">
+                                        <span class="location_address-label">Endereço da sede</span>
+                                        <span class="location_address-value">Rua Riachuelo, 1612 — Porto Alegre / RS</span>
+                                        <span class="location_address-meta">Atendimento em outras localidades: <a href="#contato" class="location_link">entre em contato</a> e consulte a disponibilidade.</span>
+                                    </div>
+                                </div>
+                                <div class="location_actions">
+                                    <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Rua%20Riachuelo%2C%201612%2C%20Porto%20Alegre%20-%20RS" target="_blank" rel="noopener" class="button">
+                                        <i class="fa-solid fa-route"></i> Como Chegar
+                                    </a>
+                                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Rua%20Riachuelo%2C%201612%2C%20Porto%20Alegre%20-%20RS" target="_blank" rel="noopener" class="button is-secondary">
+                                        <i class="fa-solid fa-map-location-dot"></i> Abrir no Google Maps
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer_component">
+        <div class="padding-global">
+            <div class="container-large">
+                <div class="footer_grid">
+                    <div class="footer_brand">
+                        <div class="footer_logo-wrapper">
+                            <img src="assets/img/logo-96.webp" alt="RVG Soluções Integradas" class="footer_logo" width="44" height="44" loading="lazy" decoding="async">
+                            <span class="navbar_brand">
+                                <span class="navbar_brand-title">RVG</span>
+                                <span class="navbar_brand-subtitle">SOLUÇÕES INTEGRADAS</span>
+                            </span>
+                        </div>
+                        <p class="footer_text">Especialistas em Acesso por Cordas, Projetos Elétricos, Automação, Luminotécnica e Gestão de Infraestrutura Condominial.</p>
+                        <p class="footer_slogan">"Sua necessidade é o nosso desafio."</p>
+                    </div>
+                    <div class="footer_column">
+                        <h2 class="footer_heading">Links Rápidos</h2>
+                        <ul class="footer_link-list">
+                            <li><a href="#hero" class="footer_link">Início</a></li>
+                            <li><a href="#historia" class="footer_link">História</a></li>
+                            <li><a href="#visao-missao" class="footer_link">Visão e Missão</a></li>
+                            <li><a href="#servicos" class="footer_link">Serviços</a></li>
+                            <li><a href="#proposta-tecnica" class="footer_link">Proposta Técnica</a></li>
+                            <li><a href="#contato" class="footer_link">Contato</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer_column">
+                        <h2 class="footer_heading">Nossos Serviços</h2>
+                        <ul class="footer_link-list">
+                            <li><a href="servicos/acesso-por-cordas/" class="footer_link">Acesso por Cordas</a></li>
+                            <li><a href="servicos/gestao-condominial/" class="footer_link">Gestão Condominial</a></li>
+                            <li><a href="servicos/projetos-e-manutencao/" class="footer_link">Projetos e Manutenção</a></li>
+                            <li><a href="servicos/automacao-e-luminotecnica/" class="footer_link">Automação e Luminotécnica</a></li>
+                            <li><a href="servicos/projetos-e-manutencao/#redes-e-cabeamento" class="footer_link">Redes e Cabeamento</a></li>
+                            <li><a href="servicos/projetos-e-manutencao/#laudos-e-documentacoes" class="footer_link">Laudos Técnicos com ART</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer_column">
+                        <h2 class="footer_heading">Contato Direto</h2>
+                        <ul class="footer_link-list">
+                            <li class="footer_contact-item"><i class="fa-solid fa-headset"></i> Atendimento Especializado</li>
+                            <li class="footer_contact-item"><i class="fa-solid fa-location-dot"></i> Rua Riachuelo, 1612 — Porto Alegre / RS</li>
+                            <li><a href="https://wa.me/5551982124987" target="_blank" rel="noopener" class="footer_link is-whatsapp"><i class="fa-brands fa-whatsapp"></i> (51) 9 8212 - 4987</a></li>
+                            <li><a href="mailto:rafaelvidor@xn--rvgsoluesintegradas-cyb80a.com.br" class="footer_link"><i class="fa-solid fa-envelope"></i> rafaelvidor@rvgsoluçõesintegradas.com.br</a></li>
+                            <li><a href="https://instagram.com/rvg.solucoes" target="_blank" rel="noopener" class="footer_link"><i class="fa-brands fa-instagram"></i> @rvg.solucoes</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer_bottom">
+                    <p>&copy; 2026 RVG Soluções Integradas. Todos os direitos reservados. Porto Alegre.</p>
+                    <p class="footer_legal">Conformidade NR-35 ANEXO 1, NR-10, CREA-RS &amp; NBR 5410.</p>
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/5551982124987?text=Ol%C3%A1!%20Gostaria%20de%20atendimento%20t%C3%A9cnico%20da%20RVG%20Solu%C3%A7%C3%B5es%20Integradas." class="float-whatsapp" target="_blank" aria-label="Falar no WhatsApp">
+    <!-- WhatsApp flutuante -->
+    <a href="https://wa.me/5551982124987?text=Ol%C3%A1!%20Gostaria%20de%20atendimento%20t%C3%A9cnico%20da%20RVG%20Solu%C3%A7%C3%B5es%20Integradas." class="whatsapp-float_component" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
         <i class="fa-brands fa-whatsapp"></i>
-        <span class="float-tooltip">Falar no WhatsApp</span>
+        <span class="whatsapp-float_tooltip">Falar no WhatsApp</span>
     </a>
+</div>
 
-    <!-- Custom App JS Script -->
-    <script src="js/app.js"></script>
+<script src="js/app.js" defer></script>
 </body>
 </html>

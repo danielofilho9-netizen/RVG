@@ -1,0 +1,33 @@
+# Cabeçalhos HTTP — formato Netlify / Cloudflare Pages (arquivo "_headers" na raiz publicada).
+# Em outras hospedagens use o equivalente: Apache => .htaccess (já incluído); Nginx/IIS/Vercel => veja docs/hospedagem-e-seguranca.md.
+# Estes cabeçalhos só valem em produção depois que o arquivo estiver na hospedagem que os interpreta:
+# confirme com  powershell -File tools\check-site.ps1 -BaseUrl https://seu-dominio
+#
+# CSP (Content-Security-Policy) escrita para os recursos realmente usados:
+#   scripts e imagens/vídeo: próprio domínio  |  fontes: Google Fonts + Font Awesome (cdnjs)  |  mapa: Google Maps (iframe)
+#   o mapa embutido roda dentro do iframe; a CSP do site só precisa permitir a moldura (frame-src).
+# HSTS NÃO está ligado de propósito: ative somente com HTTPS confirmado em todo o domínio
+#   (tools\build.ps1 -Hsts). Sem includeSubDomains/preload, que exigem checagem de todos os subdomínios.
+
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: accelerometer=(), camera=(), display-capture=(), fullscreen=(self "https://www.google.com" "https://maps.google.com"), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()
+  Cross-Origin-Opener-Policy: same-origin
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self'; media-src 'self'; frame-src https://www.google.com https://maps.google.com; connect-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'
+
+# Cache: css/js têm "?v=hash" gerado pelo build (cache longo seguro); imagens/vídeo mudam raramente;
+# HTML sempre revalidado para refletir novas versões.
+/css/*
+  Cache-Control: public, max-age=31536000, immutable
+/js/*
+  Cache-Control: public, max-age=31536000, immutable
+/assets/*
+  Cache-Control: public, max-age=2592000
+/favicon.ico
+  Cache-Control: public, max-age=86400
+/robots.txt
+  Cache-Control: public, max-age=3600
+/sitemap.xml
+  Cache-Control: public, max-age=3600
